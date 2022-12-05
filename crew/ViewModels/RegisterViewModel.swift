@@ -15,6 +15,8 @@ class RegisterViewModel : ObservableObject {
     @AppStorage("phoneNumber") var phoneNumber = "" ///10 digit phone number
     @AppStorage("phoneCode") var phoneCode = "" ///6 digit phone code
     @AppStorage("name") var name = "" ///name of user
+    @AppStorage("birthday") var birthday = "" ///birthday of user
+    @AppStorage("username") var username = "" ///username of user
 
     // MARK: indicates whether phone verification code has been sent
     @AppStorage("sentPhoneCode") var sentPhoneCode = false ///6 digit phone code
@@ -74,6 +76,33 @@ class RegisterViewModel : ObservableObject {
     // MARK: update the name of user
     func updateName(name: String) {
         self.name = name
+    }
+    
+    //MARK: update the age & bday of user
+    func updateBirthday(month: Int, day: Int, year: Int){
+
+        var monthString = ""
+        var dayString = ""
+        
+        if month < 10 {
+            monthString = "0" + String(month)
+        } else {
+            monthString = String(month)
+        }
+        
+        if day < 10 {
+            dayString = "0" + String(day)
+        } else {
+            dayString = String(day)
+        }
+        
+        self.birthday = monthString + "/" + dayString + "/" + String(year)
+          
+    }
+    
+    // MARK: update the username of user
+    func updateUsername(username: String) {
+        self.username = username
     }
     
     /// TWILIO API CALLS BELOW

@@ -7,12 +7,15 @@
 
 struct Constants{
     
+    
     static let welcomeSlidingText = "• Dissappearing video group chats • See your classmates • Search for students at your school"
     static let phoneNumberHeaderText = "hey! what's your number?"
     static let phoneCodeNotSentText = "transmitting code"
     static let phoneCodeSentText = "we've sent you a code to verify your phone number"
     static let nameHeaderText = "hi!"
     static let nameSubHeaderText = "what's your name?"
+    static let ageHeaderText = "hi"
+    static let ageSubHeaderText = "when's your birthday?"
 
     
     //MARK: error header text for each of the sign up views
@@ -25,4 +28,6 @@ struct Constants{
     static let nameErrorHeaderText = "☄️ houston, we have a problem"
     static let nameErrorSubHeaderText = "you need to enter a name to join crew. i'm sure you have a beautiful one :)"
     
+    static let ageErrorHeaderText = "are you sure about that?"
+    static let ageErrorSubHeaderText = "the date you entered doesn't look good 🤡"
 }

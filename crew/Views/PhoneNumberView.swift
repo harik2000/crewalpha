@@ -181,7 +181,7 @@ struct signUpSubHeaderText: View {
 }
 
 enum signUpInputType {
-    case phoneNumber, phoneCode, name
+    case phoneNumber, phoneCode, name, username
 }
 
 // MARK: textfield during user sign up for inputs
@@ -209,11 +209,14 @@ struct signUpTextField: View {
     @State var showVerificationView = false
     @State var showNameView = false
     @State var showAgeView = false
+    @State var showProfileView = false
 
     //check if user tapped right to go forward in toolbar or left to go backward in toolbar
     @State var tappedRight = false
     @State var tappedLeft = false
 
+    
+    
     init(showError: Binding<Bool>, textfieldPlaceholder: String, textfieldMaxWidth: CGFloat, textfieldAlignment: TextAlignment, textfieldInputMinLength: Int, showBackArrow: Bool, passedSignUpInputType : signUpInputType, textfieldKeyboardType : UIKeyboardType, textfieldContentType : UITextContentType) {
         self._showError = showError
         self.textfieldPlaceholder = textfieldPlaceholder
@@ -231,13 +234,21 @@ struct signUpTextField: View {
     }
     
     var body: some View {
-        TextField(textfieldPlaceholder, text: $textfieldInput).modifier(customViewModifier(textColor: .white, alignment: textfieldAlignment, fontSize: 24))
+        //make textfield input lowercased
+        let lowerCasedTextFieldInput = Binding<String>(get: {
+            self.textfieldInput
+        }, set: {
+            self.textfieldInput = $0.lowercased()
+        })
+        
+        TextField(textfieldPlaceholder, text: lowerCasedTextFieldInput).modifier(customViewModifier(textColor: .white, alignment: textfieldAlignment, fontSize: 24))
             .frame(maxWidth: textfieldMaxWidth)
             .foregroundColor(.white)
             .accentColor(.white)
             .focused($isFocused)
             .keyboardType(textfieldKeyboardType)
             .textContentType(textfieldContentType)
+            .textInputAutocapitalization(.never)
             .accentColor(.white)
             .toolbar {
                 ToolbarItemGroup(placement: .keyboard) {
@@ -281,7 +292,10 @@ struct signUpTextField: View {
                     NavigationLink(destination: NameView(), isActive: $showNameView) {
                         EmptyView().hidden()
                     }
-                    NavigationLink(destination: TempUserView(), isActive: $showAgeView) {
+                    NavigationLink(destination: AgeView(), isActive: $showAgeView) {
+                        EmptyView().hidden()
+                    }
+                    NavigationLink(destination: TempUserView(), isActive: $showProfileView) {
                         EmptyView().hidden()
                     }
                     
@@ -357,7 +371,19 @@ struct signUpTextField: View {
                                 registerData.updateName(name: textfieldInput)
                                 showAgeView.toggle()
                             }
+                        case .username:
+                            if textfieldInput.count < textfieldInputMinLength {
+                                withAnimation(.spring()) {
+                                    showError.toggle()
+                                    isFocused = false
+                                }
+                            } else {
+                                print("inside name")
+                                registerData.updateUsername(username: textfieldInput)
+                                showProfileView.toggle()
+                            }
                         }
+                        
                                 
                     }
                     .onChange(of: registerData.phoneAuthCode) { newValue in
