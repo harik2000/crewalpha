@@ -3,7 +3,9 @@
 //  crew
 //
 //  Created by Hari Krishna on 12/4/22.
-//
+//  NameView.swift lets the user input in their first name, allowing them to autofill
+//  from contacts, invalid input is triggered if user attempts to move fowards with
+//  an empty name
 
 import SwiftUI
 

@@ -30,4 +30,7 @@ struct Constants{
     
     static let ageErrorHeaderText = "are you sure about that?"
     static let ageErrorSubHeaderText = "the date you entered doesn't look good 🤡"
+    
+    static let usernameErrorHeaderText = "☄️ houston, we have a problem"
+    static let usernameErrorSubHeaderText = "your username needs to be between 4 and 20 characters long"
 }

@@ -432,6 +432,11 @@ struct signUpTextField: View {
                     isFocused = true
                 }
             }
+            .onReceive(textfieldInput.publisher.collect()) {
+                if passedSignUpInputType == .name || passedSignUpInputType == .username {
+                    self.textfieldInput = String($0.prefix(20))
+                }
+            }
     }
     
 }

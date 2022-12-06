@@ -3,7 +3,9 @@
 //  crew
 //
 //  Created by Hari Krishna on 12/5/22.
-//
+//  AgeView.swift lets the user input in their age, allowing them to fill in their
+//  month, day, and year, invalid input is triggered if user attempts to move
+//  forward with a birthday that's not atleast 13 years old
 
 import SwiftUI
 

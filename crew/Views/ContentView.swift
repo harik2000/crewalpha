@@ -21,8 +21,6 @@ struct ContentView: View {
             case .phoneNumber:
                 PhoneNumberView()
                     .environmentObject(opData)
-            
         }
-        
     }
 }

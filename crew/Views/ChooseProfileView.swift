@@ -3,7 +3,8 @@
 //  crew
 //
 //  Created by Hari Krishna on 12/5/22.
-//
+//  ChooseProfileView.swift lets the user choose their photo from their photo gallery
+//  and crop it before presenting it, also allows the user to skip if they would like
 
 import SwiftUI
 import CropViewController 
