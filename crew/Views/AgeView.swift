@@ -13,7 +13,7 @@ struct AgeView: View {
     
     ///register data state object to get necessary variables for view
     @StateObject var registerData = RegisterViewModel()
-    @State var showError = false
+    @State var showError = false 
 
     var body: some View {
         ///Black background for user account flow

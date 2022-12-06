@@ -5,7 +5,7 @@
 //  Created by Hari Krishna on 12/1/22.
 //  PhoneVerificationView.swift is the third screen a user sees if they are not logged in
 //  Sends a verification code using Twilio and authenticates user, checks if user already
-//  has a crew account otherwise procceeds to sign up flow with name,username,birthday, etc
+//  has a crew account otherwise procceeds to sign up flow with name, username, birthday, etc
 //  allows user to go back to phone number screen if wrong phone number or resend code after 30 seconds
 
 import SwiftUI

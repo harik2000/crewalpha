@@ -79,7 +79,7 @@ class RegisterViewModel : ObservableObject {
         self.name = name
     }
     
-    //MARK: update the age & bday of user
+    // MARK: update the age & bday of user
     func updateBirthday(month: Int, day: Int, year: Int){
 
         var monthString = ""
