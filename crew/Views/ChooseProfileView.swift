@@ -57,7 +57,7 @@ struct profileViewMessage: View {
           .padding(.trailing, 10)
           .multilineTextAlignment(.center)
           .padding(.bottom, 40)
-          .padding(.top, 150)
+          .padding(.top, UIScreen.main.bounds.size.height > 800 ? 150 : 75)
         
     }
 }

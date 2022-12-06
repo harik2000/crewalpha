@@ -8,7 +8,6 @@
 //  has a crew account otherwise procceeds to sign up flow with name,username,birthday, etc
 //  allows user to go back to phone number screen if wrong phone number or resend code after 30 seconds
 
-
 import SwiftUI
 
 struct PhoneVerificationView: View {
