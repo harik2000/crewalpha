@@ -7,7 +7,6 @@
 
 struct Constants{
     
-    
     static let welcomeSlidingText = "• Dissappearing video group chats • See your classmates • Search for students at your school"
     static let phoneNumberHeaderText = "hey! what's your number?"
     static let phoneCodeNotSentText = "transmitting code"
@@ -16,8 +15,13 @@ struct Constants{
     static let nameSubHeaderText = "what's your name?"
     static let ageHeaderText = "hi"
     static let ageSubHeaderText = "when's your birthday?"
+    static let usernameHeaderText = "choose a username"
+    static let usernameSubHeaderText = "so your friends can find you"
     static let profileHeaderText = "add a profile image so your friends can recognize you"
-    
+    static let universityHeaderText = "pick your university"
+    static let universitySubHeaderText = "to add friends on crew"
+    static let emailHeaderText = "we need to confirm that you're a bruin 🐻"
+
     //MARK: error header text for each of the sign up views
     static let phoneNumberErrorHeaderText = "🤣 no seriously i need your real digits"
     static let phoneNumberErrorSubHeaderText = "we need your phone number to identify you"
@@ -33,4 +37,7 @@ struct Constants{
     
     static let usernameErrorHeaderText = "☄️ houston, we have a problem"
     static let usernameErrorSubHeaderText = "your username needs to be between 4 and 20 characters long"
+    
+    static let emailErrorHeaderText = "🤣 no seriously i need your school email"
+    static let emailErrorSubHeaderText = "crew is currently live only at ucla"
 }

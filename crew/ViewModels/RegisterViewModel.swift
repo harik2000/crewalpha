@@ -18,6 +18,7 @@ class RegisterViewModel : ObservableObject {
     @AppStorage("birthday") var birthday = "" ///birthday of user
     @AppStorage("username") var username = "" ///username of user
     @AppStorage("image_Data") var image_Data = Data(count: 0) ///profile of user
+    @AppStorage("email") var email = "" ///email of user
 
     // MARK: indicates whether phone verification code has been sent
     @AppStorage("sentPhoneCode") var sentPhoneCode = false ///6 digit phone code
@@ -109,6 +110,11 @@ class RegisterViewModel : ObservableObject {
     // MARK: reset profile photo of user
     func resetImage() {
       self.image_Data = Data(count: 0)
+    }
+    
+    // MARK: update the email of user
+    func updateEmail(email: String) {
+        self.email = email
     }
     
     /// TWILIO API CALLS BELOW

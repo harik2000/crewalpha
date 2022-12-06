@@ -45,7 +45,7 @@ struct PhoneVerificationView: View {
                 signUpSubHeaderText(subheaderText: "sent to \(registerData.phoneNumber)")
                 
                 ///text field with verification code as input
-                signUpTextField(showError: $showError, textfieldPlaceholder: "000000", textfieldMaxWidth: 160, textfieldAlignment: .center, textfieldInputMinLength: 6, showBackArrow: true, passedSignUpInputType: .phoneCode, textfieldKeyboardType: .numberPad, textfieldContentType: .oneTimeCode)
+                signUpTextField(showError: $showError, textfieldPlaceholder: "000000", textfieldMaxWidth: 160, textfieldAlignment: .center, textfieldInputMinLength: 6, showBackArrow: true, passedSignUpInputType: .phoneCode, textfieldKeyboardType: .numberPad, textfieldContentType: .oneTimeCode, textfieldFontSize: 24)
                 
                 Spacer()
             }

@@ -23,14 +23,14 @@ struct UsernameView: View {
                 
                 Spacer()
                 
-                ///header text asking for the user to input in their name
-                signUpHeaderText(headerText: Constants.nameHeaderText)
+                ///header text asking for the user to input in their username
+                signUpHeaderText(headerText: Constants.usernameHeaderText)
                     .padding(.bottom, -30)
-                signUpHeaderText(headerText: Constants.nameSubHeaderText)
+                signUpHeaderText(headerText: Constants.usernameSubHeaderText)
                    
                 
                 ///text field with verification code as input
-                signUpTextField(showError: $showError, textfieldPlaceholder: "username", textfieldMaxWidth: 235, textfieldAlignment: .center, textfieldInputMinLength: 4, showBackArrow: false, passedSignUpInputType: .username, textfieldKeyboardType: .alphabet, textfieldContentType: UITextContentType(rawValue: ""))
+                signUpTextField(showError: $showError, textfieldPlaceholder: "username", textfieldMaxWidth: 235, textfieldAlignment: .center, textfieldInputMinLength: 4, showBackArrow: false, passedSignUpInputType: .username, textfieldKeyboardType: .alphabet, textfieldContentType: UITextContentType(rawValue: ""), textfieldFontSize: 24)
                 
                 Spacer()
             }

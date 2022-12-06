@@ -30,7 +30,7 @@ struct NameView: View {
                    
                 
                 ///text field with verification code as input
-                signUpTextField(showError: $showError, textfieldPlaceholder: "name", textfieldMaxWidth: 235, textfieldAlignment: .center, textfieldInputMinLength: 0, showBackArrow: false, passedSignUpInputType: .name, textfieldKeyboardType: .namePhonePad, textfieldContentType: .givenName)
+                signUpTextField(showError: $showError, textfieldPlaceholder: "name", textfieldMaxWidth: 235, textfieldAlignment: .center, textfieldInputMinLength: 0, showBackArrow: false, passedSignUpInputType: .name, textfieldKeyboardType: .namePhonePad, textfieldContentType: .givenName, textfieldFontSize: 24)
                 
                 Spacer()
             }
