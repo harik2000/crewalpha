@@ -21,6 +21,8 @@ struct Constants{
     static let universityHeaderText = "pick your university"
     static let universitySubHeaderText = "to add friends on crew"
     static let emailHeaderText = "we need to confirm that you're a bruin 🐻"
+    static let emailCodeNotSentText = "transmitting code"
+    static let emailCodeSentText = "we've sent you a code to verify your school email"
 
     //MARK: error header text for each of the sign up views
     static let phoneNumberErrorHeaderText = "🤣 no seriously i need your real digits"
@@ -40,4 +42,7 @@ struct Constants{
     
     static let emailErrorHeaderText = "🤣 no seriously i need your school email"
     static let emailErrorSubHeaderText = "crew is currently live only at ucla"
+    
+    static let emailCodeErrorHeaderText = "☄️ houston, we have a problem"
+    static let emailCodeErrorSubHeaderText = "check your email for a 6 digit code"
 }

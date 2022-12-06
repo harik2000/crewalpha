@@ -12,49 +12,52 @@ struct EmailView: View {
     @State var showError = false
     
     var body: some View {
-        ZStack() {
-            
-            ///black background during sign up flow
-            Color.black.ignoresSafeArea()
-            
-            VStack {
+        //navigation view handles view flow if user is not logged in
+        NavigationView {
+            ZStack() {
                 
-                Spacer()
+                ///black background during sign up flow
+                Color.black.ignoresSafeArea()
                 
-                ///header text asking for the user to input in their school email
-                signUpHeaderText(headerText: Constants.emailHeaderText)
-                    .padding(.leading, 10)
-                    .padding(.trailing, 10)
-                
-                HStack {
+                VStack {
                     
+                    Spacer()
                     
-                    ///text field with phone number as input
-                    signUpTextField(showError: $showError, textfieldPlaceholder: "email", textfieldMaxWidth: 200, textfieldAlignment: .center, textfieldInputMinLength: 0, showBackArrow: false, passedSignUpInputType: .email, textfieldKeyboardType: .alphabet, textfieldContentType: UITextContentType(rawValue: ""), textfieldFontSize: 20)
+                    ///header text asking for the user to input in their school email
+                    signUpHeaderText(headerText: Constants.emailHeaderText)
+                        .padding(.leading, 10)
+                        .padding(.trailing, 10)
                     
-                    ///default school email as ucla
-                    emailUniversityExtension()
+                    HStack {
+                        
+                        
+                        ///text field with phone number as input
+                        signUpTextField(showError: $showError, textfieldPlaceholder: "email", textfieldMaxWidth: 200, textfieldAlignment: .center, textfieldInputMinLength: 0, showBackArrow: false, passedSignUpInputType: .email, textfieldKeyboardType: .alphabet, textfieldContentType: UITextContentType(rawValue: ""), textfieldFontSize: 20)
+                        
+                        ///default school email as ucla
+                        emailUniversityExtension()
+                        
+                    }
+                    .padding(.leading, 20)
+                    .padding(.trailing, 20)
+                    .padding(.top, 10)
                     
+                    Spacer()
                 }
                 .padding(.leading, 20)
                 .padding(.trailing, 20)
-                .padding(.top, 10)
+                .opacity(showError ? 0.0 : 1)
                 
-                Spacer()
+                ///show error screen if user name input is invalid
+                if showError{
+                    
+                    signUpErrorBanner(showError: $showError, signUpErrorHeaderText: Constants.emailErrorHeaderText, signUpErrorSubHeaderText: Constants.emailErrorSubHeaderText)
+                    
+                }
             }
-            .padding(.leading, 20)
-            .padding(.trailing, 20)
-            .opacity(showError ? 0.0 : 1)
-            
-            ///show error screen if user name input is invalid
-            if showError{
-              
-                signUpErrorBanner(showError: $showError, signUpErrorHeaderText: Constants.emailErrorHeaderText, signUpErrorSubHeaderText: Constants.emailErrorSubHeaderText)
-              
-            }
+            .preferredColorScheme(.light)
+            .navigationBarHidden(true)
         }
-        .preferredColorScheme(.light)
-        .navigationBarHidden(true)
         
     }
 }

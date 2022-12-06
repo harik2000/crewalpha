@@ -181,7 +181,7 @@ struct signUpSubHeaderText: View {
 }
 
 enum signUpInputType {
-    case phoneNumber, phoneCode, name, username, email
+    case phoneNumber, phoneCode, name, username, email, emailCode
 }
 
 // MARK: textfield during user sign up for inputs
@@ -211,6 +211,7 @@ struct signUpTextField: View {
     @State var showAgeView = false
     @State var showProfileView = false
     @State var showEmailCodeView = false
+    @State var showTempView = false
 
     //check if user tapped right to go forward in toolbar or left to go backward in toolbar
     @State var tappedRight = false
@@ -301,7 +302,10 @@ struct signUpTextField: View {
                     NavigationLink(destination: ChooseProfileView(), isActive: $showProfileView) {
                         EmptyView().hidden()
                     }
-                    NavigationLink(destination: TempUserView(), isActive: $showEmailCodeView) {
+                    NavigationLink(destination: EmailVerificationView(), isActive: $showEmailCodeView) {
+                        EmptyView().hidden()
+                    }
+                    NavigationLink(destination: TempUserView(), isActive: $showTempView) {
                         EmptyView().hidden()
                     }
                     
@@ -310,6 +314,18 @@ struct signUpTextField: View {
                     VStack {
                         if passedSignUpInputType == .phoneCode {
                             if registerData.phoneCodeVerifyLoadingIndicator {
+                                ProgressView()
+                                  .frame(width: 15, height: 15)
+                                  .tint(.gray)
+                            } else {
+                                Image("arrowright")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 15, height: 15)
+                                    .padding(.leading, 2)
+                            }
+                        } else if passedSignUpInputType == .emailCode {
+                            if registerData.emailCodeVerifyLoadingIndicator {
                                 ProgressView()
                                   .frame(width: 15, height: 15)
                                   .tint(.gray)
@@ -397,6 +413,17 @@ struct signUpTextField: View {
                                 registerData.updateEmail(email: textfieldInput)
                                 showEmailCodeView.toggle()
                             }
+                        case .emailCode:
+                            if textfieldInput.count != textfieldInputMinLength {
+                                withAnimation(.spring()) {
+                                    showError.toggle()
+                                    isFocused = false
+                                }
+                            } else {
+                                if !registerData.phoneCodeVerifyLoadingIndicator {
+                                    registerData.updatePhoneCode(phoneCode: textfieldInput)
+                                }
+                            }
                         }
                         
                                 
@@ -415,11 +442,29 @@ struct signUpTextField: View {
                             }
                         }
                     }
+                    .onChange(of: registerData.emailAuthCode) { newValue in
+                        //check phone auth code flag, 1 is correct code and 2 is wrong code
+                        if passedSignUpInputType == .emailCode {
+                            if newValue == 1 {
+                                showTempView.toggle()
+                            } else if newValue == 2 {
+                                withAnimation(.spring()) {
+                                    showError.toggle()
+                                    isFocused.toggle()
+                                }
+                                registerData.resetEmailCode()
+                            }
+                        }
+                    }
                     .onChange(of: textfieldInput) { newValue in
-                        //auto verify phone code once 6 digits have been inputted by user
+                        //auto verify phone code and email code once 6 digits have been inputted by user
                         if passedSignUpInputType == .phoneCode {
                             if textfieldInput.count == 6 {
                                 registerData.updatePhoneCode(phoneCode: textfieldInput)
+                            }
+                        } else if passedSignUpInputType == .emailCode {
+                            if textfieldInput.count == 6 {
+                                registerData.updateEmailCode(emailCode: textfieldInput)
                             }
                         }
                         

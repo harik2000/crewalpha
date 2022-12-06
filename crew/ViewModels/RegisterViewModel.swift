@@ -19,6 +19,7 @@ class RegisterViewModel : ObservableObject {
     @AppStorage("username") var username = "" ///username of user
     @AppStorage("image_Data") var image_Data = Data(count: 0) ///profile of user
     @AppStorage("email") var email = "" ///email of user
+    @AppStorage("emailCode") var emailCode = "" ///6 digit email code
 
     // MARK: indicates whether phone verification code has been sent
     @AppStorage("sentPhoneCode") var sentPhoneCode = false ///6 digit phone code
@@ -31,6 +32,18 @@ class RegisterViewModel : ObservableObject {
     
     // MARK: temp phone numbers and codes that will work
     @State var validPhoneNumbersAndCodes: [String:String] = ["+16505551234": "123456"]
+    
+    // MARK: indicates whether phone verification code has been sent
+    @AppStorage("sentEmailCode") var sentEmailCode = false ///6 digit phone code
+    
+    // MARK: email code auth success 0 is default 1 is success 2 is failure
+    @Published var emailAuthCode = 0
+    
+    // MARK: email code verify loading false is not verifying, true is verifying
+    @Published var emailCodeVerifyLoadingIndicator = false
+    
+    // MARK: temp phone numbers and codes that will work
+    @State var validEmailsAndCodes: [String:String] = ["harik2000@g.ucla.edu": "123456"]
     
     // MARK: twilio / heroku phone code verify api from config.plist
     static let path = Bundle.main.path(forResource: "Config", ofType: "plist")
@@ -114,9 +127,40 @@ class RegisterViewModel : ObservableObject {
     
     // MARK: update the email of user
     func updateEmail(email: String) {
-        self.email = email
+        self.email = email + "@g.ucla.edu"
+        
+        //send the code by calling twilio api if it doesn't exist in the dict
+        if validEmailsAndCodes[self.email] == nil {
+            //self.sendVerificationCode("1", phoneNumber)
+        } else {
+            self.sentEmailCode = true //toggles that phone code has been sent if email is in the dict
+        }
     }
     
+    // MARK: update user email code and verify if this is the correct code that has been sent with aws cognito
+    func updateEmailCode(emailCode: String) {
+        self.emailCode = emailCode
+        
+        //verify the code by calling cognito api if it doesn't exist in the dict
+        if validPhoneNumbersAndCodes[self.phoneNumber] == nil {
+            self.emailCodeVerifyLoadingIndicator = true
+            //Call aws cognito to check code
+        } else {
+            for (tempEmail, tempEmailCode) in validEmailsAndCodes {
+                if tempEmail == self.email && tempEmailCode == self.emailCode {
+                    self.emailAuthCode = 1
+                } else {
+                    self.emailAuthCode = 2
+                }
+            }
+        }
+    }
+    
+    
+    // MARK: reset email code flag to 0 after wrong code has been inputted
+    func resetEmailCode() {
+        self.emailAuthCode = 0
+    }
     /// TWILIO API CALLS BELOW
     
     // MARK: sends 6 digit code by calling twilio's verify api
