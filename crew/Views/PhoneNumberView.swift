@@ -35,7 +35,7 @@ struct PhoneNumberView: View {
                         americaPhoneExtension()
                        
                         ///text field with phone number as input
-                        signUpTextField(showError: $showError, textfieldPlaceholder: "phone number", textfieldMaxWidth: .infinity, textfieldAlignment: .leading, textfieldInputMinLength: 10, showBackArrow: false, passedSignUpInputType: .phoneNumber, textfieldKeyboardType: .numberPad, textfieldContentType: .telephoneNumber)
+                        signUpTextField(showError: $showError, textfieldPlaceholder: "phone number", textfieldMaxWidth: .infinity, textfieldAlignment: .leading, textfieldInputMinLength: 10, showBackArrow: false, passedSignUpInputType: .phoneNumber, textfieldKeyboardType: .numberPad, textfieldContentType: UITextContentType(rawValue: ""))
                         
                     }
                     .padding(.leading, 20)
@@ -249,6 +249,7 @@ struct signUpTextField: View {
             .keyboardType(textfieldKeyboardType)
             .textContentType(textfieldContentType)
             .textInputAutocapitalization(.never)
+            .disableAutocorrection(true)
             .accentColor(.white)
             .toolbar {
                 ToolbarItemGroup(placement: .keyboard) {

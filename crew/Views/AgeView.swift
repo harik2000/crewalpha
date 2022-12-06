@@ -159,12 +159,10 @@ struct ageTextField: View {
 
                     .toolbar {
                         
-                        
-                        
                         ToolbarItemGroup(placement: .keyboard) {
 
                             
-                            NavigationLink(destination: TempUserView(), isActive: $showUserNameView) {
+                            NavigationLink(destination: UsernameView(), isActive: $showUserNameView) {
                                 EmptyView().hidden()
                             }
                             

@@ -28,7 +28,7 @@ struct UsernameView: View {
                    
                 
                 ///text field with verification code as input
-                signUpTextField(showError: $showError, textfieldPlaceholder: "username", textfieldMaxWidth: 235, textfieldAlignment: .center, textfieldInputMinLength: 4, showBackArrow: false, passedSignUpInputType: .username, textfieldKeyboardType: .alphabet, textfieldContentType: .username)
+                signUpTextField(showError: $showError, textfieldPlaceholder: "username", textfieldMaxWidth: 235, textfieldAlignment: .center, textfieldInputMinLength: 4, showBackArrow: false, passedSignUpInputType: .username, textfieldKeyboardType: .alphabet, textfieldContentType: UITextContentType(rawValue: ""))
                 
                 Spacer()
             }
