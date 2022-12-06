@@ -10,6 +10,14 @@
 		470CFA93293E8BE500B2E388 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470CFA92293E8BE500B2E388 /* ContentView.swift */; };
 		470CFA95293E91A900B2E388 /* AgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470CFA94293E91A900B2E388 /* AgeView.swift */; };
 		470CFA97293EB29F00B2E388 /* UsernameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470CFA96293EB29F00B2E388 /* UsernameView.swift */; };
+		4739A3BE293F02FC00284A7A /* ChooseProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4739A3BD293F02FC00284A7A /* ChooseProfileView.swift */; };
+		4739A3C1293F05C300284A7A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4739A3C0293F05C300284A7A /* SceneDelegate.swift */; };
+		4739A3C3293F05E800284A7A /* ShareActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4739A3C2293F05E800284A7A /* ShareActivityView.swift */; };
+		4739A3C5293F060500284A7A /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4739A3C4293F060500284A7A /* ImagePickerView.swift */; };
+		4739A3C7293F063500284A7A /* ImageCropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4739A3C6293F063500284A7A /* ImageCropView.swift */; };
+		4739A3CA293F069400284A7A /* CropViewController in Frameworks */ = {isa = PBXBuildFile; productRef = 4739A3C9293F069400284A7A /* CropViewController */; };
+		4739A3CC293F069400284A7A /* TOCropViewController in Frameworks */ = {isa = PBXBuildFile; productRef = 4739A3CB293F069400284A7A /* TOCropViewController */; };
+		4739A3CE293F06A500284A7A /* EmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4739A3CD293F06A500284A7A /* EmailView.swift */; };
 		4749E859293DAAE100252E0A /* NameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4749E858293DAAE100252E0A /* NameView.swift */; };
 		47B0D2132936B31400FB6792 /* crewApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B0D2122936B31400FB6792 /* crewApp.swift */; };
 		47B0D2172936B31500FB6792 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47B0D2162936B31500FB6792 /* Assets.xcassets */; };
@@ -52,6 +60,12 @@
 		470CFA92293E8BE500B2E388 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		470CFA94293E91A900B2E388 /* AgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeView.swift; sourceTree = "<group>"; };
 		470CFA96293EB29F00B2E388 /* UsernameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameView.swift; sourceTree = "<group>"; };
+		4739A3BD293F02FC00284A7A /* ChooseProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseProfileView.swift; sourceTree = "<group>"; };
+		4739A3C0293F05C300284A7A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		4739A3C2293F05E800284A7A /* ShareActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareActivityView.swift; sourceTree = "<group>"; };
+		4739A3C4293F060500284A7A /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
+		4739A3C6293F063500284A7A /* ImageCropView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCropView.swift; sourceTree = "<group>"; };
+		4739A3CD293F06A500284A7A /* EmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailView.swift; sourceTree = "<group>"; };
 		4749E858293DAAE100252E0A /* NameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameView.swift; sourceTree = "<group>"; };
 		47B0D20F2936B31400FB6792 /* crew.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = crew.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47B0D2122936B31400FB6792 /* crewApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = crewApp.swift; sourceTree = "<group>"; };
@@ -81,6 +95,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4739A3CC293F069400284A7A /* TOCropViewController in Frameworks */,
+				4739A3CA293F069400284A7A /* CropViewController in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +117,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4739A3BF293F05A100284A7A /* ImageCropService */ = {
+			isa = PBXGroup;
+			children = (
+				4739A3C0293F05C300284A7A /* SceneDelegate.swift */,
+				4739A3C2293F05E800284A7A /* ShareActivityView.swift */,
+				4739A3C4293F060500284A7A /* ImagePickerView.swift */,
+				4739A3C6293F063500284A7A /* ImageCropView.swift */,
+			);
+			path = ImageCropService;
+			sourceTree = "<group>";
+		};
 		47B0D2062936B31400FB6792 = {
 			isa = PBXGroup;
 			children = (
@@ -171,6 +198,8 @@
 				4749E858293DAAE100252E0A /* NameView.swift */,
 				470CFA94293E91A900B2E388 /* AgeView.swift */,
 				470CFA96293EB29F00B2E388 /* UsernameView.swift */,
+				4739A3BD293F02FC00284A7A /* ChooseProfileView.swift */,
+				4739A3CD293F06A500284A7A /* EmailView.swift */,
 				47C8AFCB293B157E00A00A63 /* TempUserView.swift */,
 			);
 			path = Views;
@@ -192,6 +221,7 @@
 			children = (
 				47C8AFC029388CF800A00A63 /* SFSafariViewWrapper.swift */,
 				47C8AFCF293C422B00A00A63 /* VerifyAPI.swift */,
+				4739A3BF293F05A100284A7A /* ImageCropService */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -220,6 +250,10 @@
 			dependencies = (
 			);
 			name = crew;
+			packageProductDependencies = (
+				4739A3C9293F069400284A7A /* CropViewController */,
+				4739A3CB293F069400284A7A /* TOCropViewController */,
+			);
 			productName = crew;
 			productReference = 47B0D20F2936B31400FB6792 /* crew.app */;
 			productType = "com.apple.product-type.application";
@@ -292,6 +326,9 @@
 				Base,
 			);
 			mainGroup = 47B0D2062936B31400FB6792;
+			packageReferences = (
+				4739A3C8293F069400284A7A /* XCRemoteSwiftPackageReference "TOCropViewController" */,
+			);
 			productRefGroup = 47B0D2102936B31400FB6792 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -335,9 +372,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4739A3BE293F02FC00284A7A /* ChooseProfileView.swift in Sources */,
 				47C8AFC529389ADE00A00A63 /* Styles.swift in Sources */,
 				47C8AFBD2938745000A00A63 /* PhoneNumberView.swift in Sources */,
+				4739A3CE293F06A500284A7A /* EmailView.swift in Sources */,
 				470CFA93293E8BE500B2E388 /* ContentView.swift in Sources */,
+				4739A3C5293F060500284A7A /* ImagePickerView.swift in Sources */,
+				4739A3C7293F063500284A7A /* ImageCropView.swift in Sources */,
 				47C8AFC329388E1600A00A63 /* Constants.swift in Sources */,
 				47B0D24129371D7800FB6792 /* NorthernLights.swift in Sources */,
 				47C8AFCA29393FC700A00A63 /* RegisterViewModel.swift in Sources */,
@@ -345,6 +386,8 @@
 				47B0D23E29370F4600FB6792 /* WelcomeView.swift in Sources */,
 				470CFA97293EB29F00B2E388 /* UsernameView.swift in Sources */,
 				47B0D2132936B31400FB6792 /* crewApp.swift in Sources */,
+				4739A3C3293F05E800284A7A /* ShareActivityView.swift in Sources */,
+				4739A3C1293F05C300284A7A /* SceneDelegate.swift in Sources */,
 				4749E859293DAAE100252E0A /* NameView.swift in Sources */,
 				47C8AFD0293C422B00A00A63 /* VerifyAPI.swift in Sources */,
 				470CFA95293E91A900B2E388 /* AgeView.swift in Sources */,
@@ -683,6 +726,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4739A3C8293F069400284A7A /* XCRemoteSwiftPackageReference "TOCropViewController" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/TimOliver/TOCropViewController.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4739A3C9293F069400284A7A /* CropViewController */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4739A3C8293F069400284A7A /* XCRemoteSwiftPackageReference "TOCropViewController" */;
+			productName = CropViewController;
+		};
+		4739A3CB293F069400284A7A /* TOCropViewController */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4739A3C8293F069400284A7A /* XCRemoteSwiftPackageReference "TOCropViewController" */;
+			productName = TOCropViewController;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 47B0D2072936B31400FB6792 /* Project object */;
 }

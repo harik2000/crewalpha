@@ -16,7 +16,7 @@ struct Constants{
     static let nameSubHeaderText = "what's your name?"
     static let ageHeaderText = "hi"
     static let ageSubHeaderText = "when's your birthday?"
-
+    static let profileHeaderText = "add a profile image so your friends can recognize you"
     
     //MARK: error header text for each of the sign up views
     static let phoneNumberErrorHeaderText = "🤣 no seriously i need your real digits"

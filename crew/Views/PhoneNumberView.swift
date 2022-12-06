@@ -296,7 +296,7 @@ struct signUpTextField: View {
                     NavigationLink(destination: AgeView(), isActive: $showAgeView) {
                         EmptyView().hidden()
                     }
-                    NavigationLink(destination: TempUserView(), isActive: $showProfileView) {
+                    NavigationLink(destination: ChooseProfileView(), isActive: $showProfileView) {
                         EmptyView().hidden()
                     }
                     
