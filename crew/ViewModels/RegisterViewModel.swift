@@ -16,10 +16,15 @@ class RegisterViewModel : ObservableObject {
     @AppStorage("phoneCode") var phoneCode = "" ///6 digit phone code
     @AppStorage("name") var name = "" ///name of user
     @AppStorage("birthday") var birthday = "" ///birthday of user
+    @AppStorage("month") var month = 0 ///birth month of user
+    @AppStorage("year") var year = 0 ///birth year of user
     @AppStorage("username") var username = "" ///username of user
     @AppStorage("image_Data") var image_Data = Data(count: 0) ///profile of user
     @AppStorage("email") var email = "" ///email of user
     @AppStorage("emailCode") var emailCode = "" ///6 digit email code
+    @AppStorage("schoolYear") var schoolYear = "" ///user's school year: freshman, sophomore, junior, senior, grad
+    @AppStorage("gender") var gender = "" ///user's gender: man, woman, non-binary
+    @AppStorage("genderEmoji") var genderEmoji = "" ///user's gender: man, woman, non-binary
 
     // MARK: indicates whether phone verification code has been sent
     @AppStorage("sentPhoneCode") var sentPhoneCode = false ///6 digit phone code
@@ -50,6 +55,8 @@ class RegisterViewModel : ObservableObject {
     static let config = NSDictionary(contentsOfFile: path!)
     private var baseURLString = config!["serverUrl"] as! String
     
+    //MARK: array initially empty that will be populated with man, woman, non-binary gender roles
+    @Published var tempGender = [""]
     
     // MARK: update user phone number and send 6 digit code to be verified after
     func updatePhoneNumber(phoneNumber: String) {
@@ -96,6 +103,9 @@ class RegisterViewModel : ObservableObject {
     // MARK: update the age & bday of user
     func updateBirthday(month: Int, day: Int, year: Int){
 
+        self.month = month
+        self.year = year
+        
         var monthString = ""
         var dayString = ""
         
@@ -160,6 +170,31 @@ class RegisterViewModel : ObservableObject {
     // MARK: reset email code flag to 0 after wrong code has been inputted
     func resetEmailCode() {
         self.emailAuthCode = 0
+    }
+    
+    func updateSchoolYear(schoolYear: String) {
+        if schoolYear == "1️⃣  freshman" {
+            self.schoolYear = "freshman"
+        } else if schoolYear == "2️⃣  sophomore" {
+            self.schoolYear = "sophomore"
+        } else if schoolYear == "3️⃣  junior" {
+            self.schoolYear = "junior"
+        } else if schoolYear == "4️⃣  senior" {
+            self.schoolYear = "senior"
+        } else if schoolYear == "🎓  grad" {
+            self.schoolYear = "grad"
+        }
+    }
+    
+    func updateGender(gender: String) {
+        self.genderEmoji = gender
+        if gender == "💁‍♂️" || gender == "🙋‍♂️" || gender == "🙆‍♂️" || gender == "👨‍🎓" || gender == "👴" {
+            self.gender = "man"
+        } else if gender == "💁‍♀️" || gender == "🙋‍♀️" || gender == "🙆‍♀️" || gender == "👩‍🎓" || gender == "👵" {
+            self.gender = "woman"
+        } else if gender == "💁" || gender == "🙋" || gender == "🙆" || gender == "🧑‍🎓" || gender == "🧓" {
+            self.gender = "non-binary"
+        }
     }
     /// TWILIO API CALLS BELOW
     

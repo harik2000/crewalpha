@@ -211,7 +211,7 @@ struct signUpTextField: View {
     @State var showAgeView = false
     @State var showProfileView = false
     @State var showEmailCodeView = false
-    @State var showTempView = false
+    @State var showSchoolYear = false
 
     //check if user tapped right to go forward in toolbar or left to go backward in toolbar
     @State var tappedRight = false
@@ -305,7 +305,7 @@ struct signUpTextField: View {
                     NavigationLink(destination: EmailVerificationView(), isActive: $showEmailCodeView) {
                         EmptyView().hidden()
                     }
-                    NavigationLink(destination: TempUserView(), isActive: $showTempView) {
+                    NavigationLink(destination: SchoolYearView(), isActive: $showSchoolYear) {
                         EmptyView().hidden()
                     }
                     
@@ -420,8 +420,8 @@ struct signUpTextField: View {
                                     isFocused = false
                                 }
                             } else {
-                                if !registerData.phoneCodeVerifyLoadingIndicator {
-                                    registerData.updatePhoneCode(phoneCode: textfieldInput)
+                                if !registerData.emailCodeVerifyLoadingIndicator {
+                                    registerData.updateEmailCode(emailCode: textfieldInput)
                                 }
                             }
                         }
@@ -446,7 +446,7 @@ struct signUpTextField: View {
                         //check phone auth code flag, 1 is correct code and 2 is wrong code
                         if passedSignUpInputType == .emailCode {
                             if newValue == 1 {
-                                showTempView.toggle()
+                                showSchoolYear.toggle()
                             } else if newValue == 2 {
                                 withAnimation(.spring()) {
                                     showError.toggle()

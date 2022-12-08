@@ -12,8 +12,7 @@ struct EmailView: View {
     @State var showError = false
     
     var body: some View {
-        //navigation view handles view flow if user is not logged in
-        NavigationView {
+
             ZStack() {
                 
                 ///black background during sign up flow
@@ -57,7 +56,6 @@ struct EmailView: View {
             }
             .preferredColorScheme(.light)
             .navigationBarHidden(true)
-        }
         
     }
 }

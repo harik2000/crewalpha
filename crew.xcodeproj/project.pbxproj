@@ -20,6 +20,8 @@
 		4739A3CE293F06A500284A7A /* EmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4739A3CD293F06A500284A7A /* EmailView.swift */; };
 		4739A3D0293FC20900284A7A /* ChooseUniversityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4739A3CF293FC20900284A7A /* ChooseUniversityView.swift */; };
 		4739A3D2293FD65700284A7A /* EmailVerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4739A3D1293FD65700284A7A /* EmailVerificationView.swift */; };
+		4739A3D42940318A00284A7A /* SchoolYearView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4739A3D32940318A00284A7A /* SchoolYearView.swift */; };
+		4739A3D62940319700284A7A /* ChooseGenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4739A3D52940319700284A7A /* ChooseGenderView.swift */; };
 		4749E859293DAAE100252E0A /* NameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4749E858293DAAE100252E0A /* NameView.swift */; };
 		47B0D2132936B31400FB6792 /* crewApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B0D2122936B31400FB6792 /* crewApp.swift */; };
 		47B0D2172936B31500FB6792 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47B0D2162936B31500FB6792 /* Assets.xcassets */; };
@@ -70,6 +72,8 @@
 		4739A3CD293F06A500284A7A /* EmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailView.swift; sourceTree = "<group>"; };
 		4739A3CF293FC20900284A7A /* ChooseUniversityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseUniversityView.swift; sourceTree = "<group>"; };
 		4739A3D1293FD65700284A7A /* EmailVerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailVerificationView.swift; sourceTree = "<group>"; };
+		4739A3D32940318A00284A7A /* SchoolYearView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolYearView.swift; sourceTree = "<group>"; };
+		4739A3D52940319700284A7A /* ChooseGenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseGenderView.swift; sourceTree = "<group>"; };
 		4749E858293DAAE100252E0A /* NameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameView.swift; sourceTree = "<group>"; };
 		47B0D20F2936B31400FB6792 /* crew.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = crew.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47B0D2122936B31400FB6792 /* crewApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = crewApp.swift; sourceTree = "<group>"; };
@@ -205,6 +209,8 @@
 				4739A3BD293F02FC00284A7A /* ChooseProfileView.swift */,
 				4739A3CD293F06A500284A7A /* EmailView.swift */,
 				4739A3D1293FD65700284A7A /* EmailVerificationView.swift */,
+				4739A3D32940318A00284A7A /* SchoolYearView.swift */,
+				4739A3D52940319700284A7A /* ChooseGenderView.swift */,
 				4739A3CF293FC20900284A7A /* ChooseUniversityView.swift */,
 				47C8AFCB293B157E00A00A63 /* TempUserView.swift */,
 			);
@@ -390,6 +396,7 @@
 				47B0D24129371D7800FB6792 /* NorthernLights.swift in Sources */,
 				47C8AFCA29393FC700A00A63 /* RegisterViewModel.swift in Sources */,
 				47C8AFC729393B7200A00A63 /* PhoneVerificationView.swift in Sources */,
+				4739A3D42940318A00284A7A /* SchoolYearView.swift in Sources */,
 				47B0D23E29370F4600FB6792 /* WelcomeView.swift in Sources */,
 				470CFA97293EB29F00B2E388 /* UsernameView.swift in Sources */,
 				47B0D2132936B31400FB6792 /* crewApp.swift in Sources */,
@@ -401,6 +408,7 @@
 				4739A3D2293FD65700284A7A /* EmailVerificationView.swift in Sources */,
 				47C8AFCC293B157E00A00A63 /* TempUserView.swift in Sources */,
 				47B0D2432937259C00FB6792 /* CrewLogo.swift in Sources */,
+				4739A3D62940319700284A7A /* ChooseGenderView.swift in Sources */,
 				47C8AFC129388CF800A00A63 /* SFSafariViewWrapper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

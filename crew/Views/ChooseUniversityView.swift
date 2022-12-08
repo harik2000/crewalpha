@@ -31,14 +31,12 @@ struct ChooseUniversityView: View {
                 
                 ///selection of schools for user to select from
                 ForEach(schoolYear, id: \.self) { item in
-                  SchoolYearText(schoolYear: item, selectedYear: self.$selectedYear)
+                    chooseSchoolText(schoolYear: item, selectedYear: self.$selectedYear)
                 }
                 
                 reachOutUniversity()
                     .padding(.top, 30)
 
-
-                
                 Spacer()
                 
 
@@ -113,7 +111,7 @@ struct reachOutUniversity: View {
     }
 }
 
-struct SchoolYearText: View {
+struct chooseSchoolText: View {
   let schoolYear: String
   @Binding var selectedYear: String?
   
