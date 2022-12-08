@@ -3,7 +3,8 @@
 //  crew
 //
 //  Created by Hari Krishna on 12/6/22.
-//
+//  SchoolYearView.swift allows a user to input in their school year
+//  guesses school year based on birthday as freshman, sophomore, junior, senior or grad
 
 import SwiftUI
 

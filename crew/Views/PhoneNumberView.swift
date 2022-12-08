@@ -494,6 +494,8 @@ struct signUpTextField: View {
             .onReceive(textfieldInput.publisher.collect()) {
                 if passedSignUpInputType == .name || passedSignUpInputType == .username {
                     self.textfieldInput = String($0.prefix(20))
+                } else if passedSignUpInputType == .phoneNumber {
+                    self.textfieldInput = String($0.prefix(10))
                 }
             }
     }

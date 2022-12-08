@@ -3,7 +3,8 @@
 //  crew
 //
 //  Created by Hari Krishna on 12/6/22.
-//
+//  ChooseGenderView.swift allows user to input in their gender as man, woman, non-binary
+//  later to be used for fanmail
 
 import SwiftUI
 
@@ -36,7 +37,7 @@ struct toggleGender: View {
     @State var showHome = false
     @State var tap = false
     
-    //registerviewmodel object to update specfici
+    //registerviewmodel object to update specfic gender
     @StateObject var registerData = RegisterViewModel()
     @State var genderArray = ["man", "woman", "non-binary"]
 
@@ -52,7 +53,6 @@ struct toggleGender: View {
                 }
                 .padding(.trailing, 10)
 
-                
                 
                 VStack {
                     chooseGender(gender: genderArray[1], selectedGender: self.$selectedGender)
@@ -117,7 +117,6 @@ struct toggleGender: View {
                         tap = false
                         registerData.updateGender(gender: selectedGender ?? "🧓")
                         showHome.toggle()
-                        //registerData.createUser(passedSchoolYear: selectedYear ?? "🎓  grad")
                     }
                 }
                 .disabled(self.selectedGender == nil)

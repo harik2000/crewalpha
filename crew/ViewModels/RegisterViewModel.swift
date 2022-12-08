@@ -150,9 +150,8 @@ class RegisterViewModel : ObservableObject {
     // MARK: update user email code and verify if this is the correct code that has been sent with aws cognito
     func updateEmailCode(emailCode: String) {
         self.emailCode = emailCode
-        
         //verify the code by calling cognito api if it doesn't exist in the dict
-        if validPhoneNumbersAndCodes[self.phoneNumber] == nil {
+        if validEmailsAndCodes[self.email] == nil {
             self.emailCodeVerifyLoadingIndicator = true
             //Call aws cognito to check code
         } else {

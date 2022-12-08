@@ -3,7 +3,8 @@
 //  crew
 //
 //  Created by Hari Krishna on 12/5/22.
-//
+//  EmailView.swift allows a user to input in their school email which will
+//  be sent to aws cognito to be verified
 
 import SwiftUI
 

@@ -3,7 +3,8 @@
 //  crew
 //
 //  Created by Hari Krishna on 12/6/22.
-//
+//  EmailVerificationView.swift allows a user to input in their 6 digit code
+//  that is given to their school email previously inputted by the aws cognito service
 
 import SwiftUI
 
