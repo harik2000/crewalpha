@@ -25,6 +25,7 @@ struct Constants{
     static let emailCodeSentText = "we've sent you a code to verify your school email"
     static let genderHeaderText = "what's your gender?"
     static let schoolYearHeaderText = "check off your school year"
+    static let contactHeaderText = "crew works way better with your contacts :)"
 
     //MARK: error header text for each of the sign up views
     static let phoneNumberErrorHeaderText = "🤣 no seriously i need your real digits"

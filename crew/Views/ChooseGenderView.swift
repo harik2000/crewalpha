@@ -104,7 +104,7 @@ struct toggleGender: View {
                 .frame(width: 105, height: 50)
                 .background(Color.white)
                 .mask(RoundedRectangle(cornerRadius: 10, style: .continuous))
-                .padding(.trailing, 20)
+                .padding(.trailing, 25)
                 .padding(.bottom, 30)
                 .scaleEffect(tap ? 0.8 : 1)
                 .animation(.spring(response: 0.4, dampingFraction: 0.6), value: tap)

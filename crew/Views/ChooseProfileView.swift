@@ -75,11 +75,12 @@ struct skipProfileButton: View {
             
             NavigationLink(destination: EmailView(), isActive: $showEmail) {
                 
-                Text("skip")
-                .font(.custom("ABCSocial-Bold-Trial", size: 22))
+                Text("later")
+                .font(.custom("ABCSocial-Bold-Trial", size: 18))
                 .foregroundColor(.white)
                 .opacity(0.5)
-                .padding(.trailing, 20)
+                .padding(.trailing, 25)
+                .padding(.top, 10)
                 .padding(.top, UIScreen.main.bounds.size.height > 800 ? 0 : 20)
                 .onTapGesture {
                     let impactMed = UIImpactFeedbackGenerator(style: .light)
@@ -119,7 +120,7 @@ struct nextProfileButton: View {
             .background(Color.white)
             .opacity(registerData.image_Data.count == 0 ? 0.5 : 1)
             .mask(RoundedRectangle(cornerRadius: 10, style: .continuous))
-            .padding(.trailing, 20)
+            .padding(.trailing, 25)
             .padding(.bottom, 30)
             .scaleEffect(tap ? 0.8 : 1)
             .animation(.spring(response: 0.4, dampingFraction: 0.6), value: tap)

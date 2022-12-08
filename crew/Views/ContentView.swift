@@ -19,7 +19,7 @@ struct ContentView: View {
                 WelcomeView()
                     .environmentObject(opData)
             case .phoneNumber:
-                PhoneNumberView()
+                ContactsPermissionView()
                     .environmentObject(opData)
         }
     }
