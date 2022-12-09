@@ -45,7 +45,7 @@ struct UsernameView: View {
               
             }
         }
-        .preferredColorScheme(.light)
+        .statusBarStyle(.lightContent)
         .navigationBarHidden(true)
     }
 }

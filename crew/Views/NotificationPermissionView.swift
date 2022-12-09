@@ -31,6 +31,7 @@ struct NotificationPermissionView: View {
             notificationHeader()
             
         }
+        .statusBarStyle(.lightContent)
         .navigationBarHidden(true)
     }
 }
@@ -88,6 +89,8 @@ struct notificationAlert: View {
                         .foregroundColor(Color.blue)
                         .font(.system(size: 14, weight: .regular))
                 }, action: {
+                    let impactMed = UIImpactFeedbackGenerator(style: .light)
+                    impactMed.impactOccurred()
                     showContact.toggle()
                 }),
                 .regular(content: {
@@ -96,6 +99,8 @@ struct notificationAlert: View {
                         .font(.system(size: 14, weight: .semibold))
                 }, action:
                     {
+                        let impactMed = UIImpactFeedbackGenerator(style: .medium)
+                        impactMed.impactOccurred()
                         let center = UNUserNotificationCenter.current()
                         center.requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
                             

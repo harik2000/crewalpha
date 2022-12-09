@@ -41,7 +41,7 @@ struct ContactsPermissionView: View {
 
             }
         }
-        //.preferredColorScheme(.light)
+        .statusBarStyle(.lightContent)
         .navigationBarHidden(true)
     }
 }

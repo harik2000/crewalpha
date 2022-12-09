@@ -45,7 +45,7 @@ struct NameView: View {
               
             }
         }
-        .preferredColorScheme(.light)
+        .statusBarStyle(.lightContent)
         .navigationBarHidden(true)
     }
 }

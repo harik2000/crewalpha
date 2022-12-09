@@ -26,7 +26,7 @@ struct ChooseGenderView: View {
                 toggleGender()
             }
         }
-        .preferredColorScheme(.light)
+        .statusBarStyle(.lightContent)
         .navigationBarHidden(true)
     }
 }

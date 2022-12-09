@@ -58,7 +58,7 @@ struct EmailVerificationView: View {
               
             }
         }
-        .preferredColorScheme(.light)
+        .statusBarStyle(.lightContent)
         .navigationBarHidden(true)
         
     }

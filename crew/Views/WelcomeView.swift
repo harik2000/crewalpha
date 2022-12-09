@@ -45,7 +45,7 @@ struct WelcomeView: View {
             }
         }
         //force status bar to be white tint
-        .preferredColorScheme(.dark)
+        .statusBarStyle(.lightContent)
     }
 }
 

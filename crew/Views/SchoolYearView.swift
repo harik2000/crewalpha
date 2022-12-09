@@ -31,7 +31,7 @@ struct SchoolYearView: View {
                 
             }
         }
-        .preferredColorScheme(.light)
+        .statusBarStyle(.lightContent)
         .navigationBarHidden(true)
     }
 }

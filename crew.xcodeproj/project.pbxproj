@@ -24,6 +24,7 @@
 		4739A3D62940319700284A7A /* ChooseGenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4739A3D52940319700284A7A /* ChooseGenderView.swift */; };
 		4739A3D829426E9700284A7A /* ContactsPermissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4739A3D729426E9700284A7A /* ContactsPermissionView.swift */; };
 		4739A3DA2942964100284A7A /* NotificationPermissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4739A3D92942964100284A7A /* NotificationPermissionView.swift */; };
+		4739A3DC2943DB2F00284A7A /* StatusBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4739A3DB2943DB2F00284A7A /* StatusBarController.swift */; };
 		4749E859293DAAE100252E0A /* NameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4749E858293DAAE100252E0A /* NameView.swift */; };
 		47B0D2132936B31400FB6792 /* crewApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B0D2122936B31400FB6792 /* crewApp.swift */; };
 		47B0D2172936B31500FB6792 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47B0D2162936B31500FB6792 /* Assets.xcassets */; };
@@ -78,6 +79,7 @@
 		4739A3D52940319700284A7A /* ChooseGenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseGenderView.swift; sourceTree = "<group>"; };
 		4739A3D729426E9700284A7A /* ContactsPermissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsPermissionView.swift; sourceTree = "<group>"; };
 		4739A3D92942964100284A7A /* NotificationPermissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPermissionView.swift; sourceTree = "<group>"; };
+		4739A3DB2943DB2F00284A7A /* StatusBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarController.swift; sourceTree = "<group>"; };
 		4749E858293DAAE100252E0A /* NameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameView.swift; sourceTree = "<group>"; };
 		47B0D20F2936B31400FB6792 /* crew.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = crew.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47B0D2122936B31400FB6792 /* crewApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = crewApp.swift; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				47C8AFC029388CF800A00A63 /* SFSafariViewWrapper.swift */,
+				4739A3DB2943DB2F00284A7A /* StatusBarController.swift */,
 				47C8AFCF293C422B00A00A63 /* VerifyAPI.swift */,
 				4739A3BF293F05A100284A7A /* ImageCropService */,
 			);
@@ -393,6 +396,7 @@
 				4739A3BE293F02FC00284A7A /* ChooseProfileView.swift in Sources */,
 				47C8AFC529389ADE00A00A63 /* Styles.swift in Sources */,
 				47C8AFBD2938745000A00A63 /* PhoneNumberView.swift in Sources */,
+				4739A3DC2943DB2F00284A7A /* StatusBarController.swift in Sources */,
 				4739A3D0293FC20900284A7A /* ChooseUniversityView.swift in Sources */,
 				4739A3CE293F06A500284A7A /* EmailView.swift in Sources */,
 				470CFA93293E8BE500B2E388 /* ContentView.swift in Sources */,

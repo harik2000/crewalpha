@@ -28,8 +28,12 @@ struct crewApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environmentObject(opData)
+            //wrap main view in RootView
+            RootView {
+                ContentView()
+                    .environmentObject(opData)
+            }
+            
         }
     }
 }

@@ -39,6 +39,7 @@ struct ChooseProfileView: View {
             }
 
         }
+        .statusBarStyle(.lightContent)
         .navigationBarHidden(true)
         .onAppear{
             registerData.resetImage()

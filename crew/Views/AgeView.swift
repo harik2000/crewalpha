@@ -40,7 +40,7 @@ struct AgeView: View {
                 signUpErrorBanner(showError: $showError, signUpErrorHeaderText: Constants.ageErrorHeaderText, signUpErrorSubHeaderText: Constants.ageErrorSubHeaderText)
             }
         }
-        .preferredColorScheme(.light)
+        .statusBarStyle(.lightContent)
         .navigationBarHidden(true)
     }
 

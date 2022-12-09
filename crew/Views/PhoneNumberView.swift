@@ -60,7 +60,7 @@ struct PhoneNumberView: View {
                 }
                 
             }
-            .preferredColorScheme(.light)
+            .statusBarStyle(.lightContent)
             .navigationBarHidden(true)
         }
 
