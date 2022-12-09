@@ -22,7 +22,7 @@ struct SchoolYearView: View {
                 
                 ///header text asking for phone number
                 signUpHeaderText(headerText: Constants.schoolYearHeaderText)
-                    .padding(.top, 150)
+                    .padding(.top, UIScreen.main.bounds.size.height > 800 ? 150 : 30)
                     .padding(.bottom, 30)
                 
                 ///gives 4 years + grad option for user to select before finishing account creation

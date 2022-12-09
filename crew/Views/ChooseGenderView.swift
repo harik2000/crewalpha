@@ -19,7 +19,7 @@ struct ChooseGenderView: View {
                 
                 ///header text asking for phone number
                 signUpHeaderText(headerText: Constants.genderHeaderText)
-                    .padding(.top, 150)
+                    .padding(.top, UIScreen.main.bounds.size.height > 800 ? 150 : 30)
                     .padding(.bottom, 30)
 
                 ///give three options between man, woman, and non-binary for user to select from

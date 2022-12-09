@@ -3,7 +3,9 @@
 //  crew
 //
 //  Created by Hari Krishna on 12/8/22.
-//
+//  ContactsPermissionView.swift has a header along with emoji and three bullet points
+//  highlighting the use cases of contacts to better find friends, classmates, and mutuals
+//  on crew, allow user to skip and let them know that contacts are being stored on server
 
 import SwiftUI
 import Contacts

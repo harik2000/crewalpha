@@ -3,7 +3,11 @@
 //  crew
 //
 //  Created by Hari Krishna on 12/8/22.
-//
+//  NotificationPermissionView.swift has a custom alert dialog that mimics ios alert dialog
+//  to ask user for notification permission with an animated bouncing pointer
+//  Get a second chance to ask user for notification permission if they press don't allow
+//  in the custom alert dialog
+//  Moves ahead to contact permission after user selects allow or don't allow
 
 import SwiftUI
 
@@ -38,9 +42,9 @@ struct notificationHeader: View {
             Spacer()
             
             notificationViewMessage()
-                .padding(.leading, 0)
-                .padding(.trailing, 0)
-                .padding(.bottom, 500)
+                .padding(.leading, 30)
+                .padding(.trailing, 30)
+                .padding(.bottom, UIScreen.main.bounds.size.height > 800 ? 425 : 400)
             
             Spacer()
         }
@@ -63,14 +67,14 @@ struct notificationAlert: View {
             content: {
                 VStack {
                     Text(" \"crew\" Would Like to Send You Notifications")
-                        .font(.system(size: 20, weight: .semibold))
+                        .font(.system(size: 17, weight: .semibold))
                         .padding(.bottom, 2)
                         .padding(.top, 15)
                         .multilineTextAlignment(.center)
                         .fixedSize(horizontal: false, vertical: true)
                         .foregroundColor(colorScheme == .light ? .black : .white) //dark mode
-                    Text("Notifications may include alerts sounds, and icon badges. These can be configured in Settings.")
-                        .font(.system(size: 18, weight: .regular))
+                    Text("Notifications may include alerts, sounds, and icon badges. These can be configured in Settings.")
+                        .font(.system(size: 14, weight: .regular))
                         .padding(.bottom, 4)
                         .foregroundColor(colorScheme == .light ? .black : .white) //dark mode
                 }
@@ -82,14 +86,14 @@ struct notificationAlert: View {
                 .destructive(content: {
                     Text("Don't Allow")
                         .foregroundColor(Color.blue)
-                        .font(.system(size: 18, weight: .regular))
+                        .font(.system(size: 14, weight: .regular))
                 }, action: {
                     showContact.toggle()
                 }),
                 .regular(content: {
                     Text("Allow")
                         .foregroundColor(Color.blue)
-                        .font(.system(size: 18, weight: .semibold))
+                        .font(.system(size: 14, weight: .semibold))
                 }, action:
                     {
                         let center = UNUserNotificationCenter.current()
@@ -128,7 +132,7 @@ struct notificationPointer: View {
                     .lineLimit(1)
             }
             .padding(8)
-            .frame(width: 72, height: 72)
+            .frame(width: UIScreen.main.bounds.size.height > 800 ? 72 : 60, height: UIScreen.main.bounds.size.height > 800 ? 72 : 60)
             .background(.black)
             .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
             .shadow(radius: 3)
@@ -144,7 +148,7 @@ struct notificationPointer: View {
             
             Spacer()
         }
-        .padding(.top, UIScreen.main.bounds.size.height * 0.45)
+        .padding(.top, UIScreen.main.bounds.size.height > 800 ? UIScreen.main.bounds.size.height * 0.45 : UIScreen.main.bounds.size.height * 0.55)
         .onAppear {
             for i in 0...1000 {
                 DispatchQueue.main.asyncAfter(deadline: .now() + (Double(i) * 1.5)) {
@@ -192,7 +196,7 @@ struct notificationViewMessage: View {
           .padding(.trailing, 0)
           .multilineTextAlignment(.center)
           .padding(.bottom, 10)
-          .padding(.top, UIScreen.main.bounds.size.height > 800 ? 120 : 75)
+          .padding(.top, UIScreen.main.bounds.size.height > 800 ? 100 : 75)
         
     }
 }
@@ -239,7 +243,7 @@ struct UniAlert<Presenter, Content>: View where Content: View, Presenter: View {
                 presentationView.disabled(isShowing)
 
                 backgroundColorView()
-                let expectedWidth = geometry.size.width * 0.631
+                let expectedWidth = geometry.size.width * 0.65
                 VStack(spacing: 0) {
                     VStack {
                         displayContent
@@ -263,7 +267,7 @@ struct UniAlert<Presenter, Content>: View where Content: View, Presenter: View {
             }
             .edgesIgnoringSafeArea(.all)
             .zIndex(Double.greatestFiniteMagnitude)
-            .padding(.top, 0)
+            .padding(.top, 0.0)
         }
     }
     
