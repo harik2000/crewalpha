@@ -52,9 +52,10 @@ struct contactDescription: View {
     var body: some View {
         VStack {
             contactFooterTitle(text: "allow contacts to...")
-            contactFooterMessage(text: "discover friends at \(registerData.university)", sfsymbol: "heart.fill")
-            contactFooterMessage(text: "add classmates who join crew", sfsymbol: "studentdesk")
-            contactFooterMessage(text: "find your friend's friends", sfsymbol: "message.fill")
+            contactFooterMessage(text: "discover friends at \(registerData.university)", sfsymbol: "heart.fill", sfColor: Color.red)
+            contactFooterMessage(text: "add classmates who join crew", sfsymbol: "studentdesk", sfColor: Color.brown)
+            contactFooterMessage(text: "find your friend's friends", sfsymbol: "message.fill", sfColor: Color(#colorLiteral(red: 0, green: 0.6950183511, blue: 1, alpha: 0.85)))
+            
         }
     }
 }
@@ -126,12 +127,13 @@ struct contactFooterMessage: View {
     
     var text: String
     var sfsymbol: String
+    var sfColor: Color
     
     var body: some View {
         HStack {
             Image(systemName: sfsymbol)
                 .font(.system(size: 16.0))
-                .foregroundColor(.white)
+                .foregroundColor(sfColor)
             
             Text(text)
               .font(.custom("ABCSocial-Bold-Trial", size: 16))

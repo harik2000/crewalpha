@@ -342,9 +342,6 @@ struct UniAlert<Presenter, Content>: View where Content: View, Presenter: View {
                             .opacity(current.isDestructive ? 0 : 1)
 
                     )
-                    .onAppear {
-                        print("button is \(buttons.count) and current is \(current.isDestructive)")
-                    }
                 }
                 
                 Spacer()
