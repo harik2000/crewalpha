@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Contacts
 
 struct ContactsPermissionView: View {
     var body: some View {
@@ -38,14 +39,20 @@ struct ContactsPermissionView: View {
 
             }
         }
+        //.preferredColorScheme(.light)
+        .navigationBarHidden(true)
     }
 }
 
 struct contactDescription: View {
+    
+    //registerviewmodel object to update whether email code has been sent
+    @StateObject var registerData = RegisterViewModel()
+    
     var body: some View {
         VStack {
-            contactFooterTitle(text: "get contacts to...")
-            contactFooterMessage(text: "friend students on campus", sfsymbol: "heart.fill")
+            contactFooterTitle(text: "allow contacts to...")
+            contactFooterMessage(text: "discover friends at \(registerData.university)", sfsymbol: "heart.fill")
             contactFooterMessage(text: "add classmates who join crew", sfsymbol: "studentdesk")
             contactFooterMessage(text: "find your friend's friends", sfsymbol: "message.fill")
         }
@@ -124,6 +131,7 @@ struct contactFooterMessage: View {
         HStack {
             Image(systemName: sfsymbol)
                 .font(.system(size: 16.0))
+                .foregroundColor(.white)
             
             Text(text)
               .font(.custom("ABCSocial-Bold-Trial", size: 16))
@@ -186,12 +194,38 @@ struct contactButton: View {
 
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                         tap = false
+                        
+                        let authStatus = CNContactStore.authorizationStatus(for: .contacts)
+                        switch authStatus {
+                        case .restricted:
+                            print("User cannot grant permission, e.g. parental controls in force.")
+                        case .denied:
+                            print("User has explicitly denied permission.")
+                            print("They have to grant it via Preferences app if they change their mind.")
+                        case .notDetermined:
+                            print("You need to request authorization via the API now.")
+                        case .authorized:
+                            print("You are already authorized.")
+                        @unknown default:
+                            print("unknown case")
+                        }
 
+                        let store = CNContactStore()
+                        if authStatus == .notDetermined {
+                            store.requestAccess(for: .contacts) { success, error in
+                              showHome.toggle()
+                                if !success {
+                                    print("Not authorized to access contacts. Error = \(String(describing: error))")
+                                }
+                            }
+                        } else {
+                            showHome.toggle()
+                        }
+                        
                     }
                 }
                 
                 Spacer()
-                
                 
             }
         }

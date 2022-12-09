@@ -22,6 +22,7 @@ class RegisterViewModel : ObservableObject {
     @AppStorage("image_Data") var image_Data = Data(count: 0) ///profile of user
     @AppStorage("email") var email = "" ///email of user
     @AppStorage("emailCode") var emailCode = "" ///6 digit email code
+    @AppStorage("university") var university = "ucla" ///user's university, only ucla for now
     @AppStorage("schoolYear") var schoolYear = "" ///user's school year: freshman, sophomore, junior, senior, grad
     @AppStorage("gender") var gender = "" ///user's gender: man, woman, non-binary
     @AppStorage("genderEmoji") var genderEmoji = "" ///user's gender: man, woman, non-binary

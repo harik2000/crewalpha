@@ -34,7 +34,7 @@ struct ChooseGenderView: View {
 struct toggleGender: View {
     
     @State var selectedGender: String?
-    @State var showHome = false
+    @State var showNotifications = false
     @State var tap = false
     
     //registerviewmodel object to update specfic gender
@@ -116,13 +116,13 @@ struct toggleGender: View {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                         tap = false
                         registerData.updateGender(gender: selectedGender ?? "🧓")
-                        showHome.toggle()
+                        showNotifications.toggle()
                     }
                 }
                 .disabled(self.selectedGender == nil)
                 .opacity(self.selectedGender == nil ? 0.5 : 1)
                 
-                NavigationLink(destination: TempUserView(), isActive: $showHome) {
+                NavigationLink(destination: NotificationPermissionView(), isActive: $showNotifications) {
                     EmptyView()
                 }
                 
