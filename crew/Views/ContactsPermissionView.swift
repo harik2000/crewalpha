@@ -97,6 +97,9 @@ struct contactViewMessage: View {
 
 struct skipContactButton: View {
     
+    //registerviewmodel object to update user logged in status
+    @StateObject var registerData = RegisterViewModel()
+    
     @State var showHome = false
     
     var body: some View {
@@ -118,6 +121,7 @@ struct skipContactButton: View {
                         let impactMed = UIImpactFeedbackGenerator(style: .light)
                         impactMed.impactOccurred()
                         showHome.toggle()
+                        registerData.loginUser()
                     }
             }
         }
@@ -223,6 +227,7 @@ struct contactButton: View {
                                 }
                             }
                         } else {
+                            registerData.loginUser()
                             showHome.toggle()
                         }
                         

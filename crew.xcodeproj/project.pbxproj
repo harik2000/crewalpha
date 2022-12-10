@@ -25,6 +25,7 @@
 		4739A3D829426E9700284A7A /* ContactsPermissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4739A3D729426E9700284A7A /* ContactsPermissionView.swift */; };
 		4739A3DA2942964100284A7A /* NotificationPermissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4739A3D92942964100284A7A /* NotificationPermissionView.swift */; };
 		4739A3DC2943DB2F00284A7A /* StatusBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4739A3DB2943DB2F00284A7A /* StatusBarController.swift */; };
+		4739A3DE294433C700284A7A /* WelcomeBackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4739A3DD294433C700284A7A /* WelcomeBackView.swift */; };
 		4749E859293DAAE100252E0A /* NameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4749E858293DAAE100252E0A /* NameView.swift */; };
 		47B0D2132936B31400FB6792 /* crewApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B0D2122936B31400FB6792 /* crewApp.swift */; };
 		47B0D2172936B31500FB6792 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47B0D2162936B31500FB6792 /* Assets.xcassets */; };
@@ -80,6 +81,7 @@
 		4739A3D729426E9700284A7A /* ContactsPermissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsPermissionView.swift; sourceTree = "<group>"; };
 		4739A3D92942964100284A7A /* NotificationPermissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPermissionView.swift; sourceTree = "<group>"; };
 		4739A3DB2943DB2F00284A7A /* StatusBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarController.swift; sourceTree = "<group>"; };
+		4739A3DD294433C700284A7A /* WelcomeBackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeBackView.swift; sourceTree = "<group>"; };
 		4749E858293DAAE100252E0A /* NameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameView.swift; sourceTree = "<group>"; };
 		47B0D20F2936B31400FB6792 /* crew.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = crew.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47B0D2122936B31400FB6792 /* crewApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = crewApp.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 				47B0D23D29370F4600FB6792 /* WelcomeView.swift */,
 				47C8AFBC2938745000A00A63 /* PhoneNumberView.swift */,
 				47C8AFC629393B7200A00A63 /* PhoneVerificationView.swift */,
+				4739A3DD294433C700284A7A /* WelcomeBackView.swift */,
 				4749E858293DAAE100252E0A /* NameView.swift */,
 				470CFA94293E91A900B2E388 /* AgeView.swift */,
 				470CFA96293EB29F00B2E388 /* UsernameView.swift */,
@@ -417,6 +420,7 @@
 				470CFA95293E91A900B2E388 /* AgeView.swift in Sources */,
 				4739A3D2293FD65700284A7A /* EmailVerificationView.swift in Sources */,
 				47C8AFCC293B157E00A00A63 /* TempUserView.swift in Sources */,
+				4739A3DE294433C700284A7A /* WelcomeBackView.swift in Sources */,
 				47B0D2432937259C00FB6792 /* CrewLogo.swift in Sources */,
 				4739A3DA2942964100284A7A /* NotificationPermissionView.swift in Sources */,
 				4739A3D62940319700284A7A /* ChooseGenderView.swift in Sources */,

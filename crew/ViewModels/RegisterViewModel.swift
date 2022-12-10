@@ -27,6 +27,13 @@ class RegisterViewModel : ObservableObject {
     @AppStorage("gender") var gender = "" ///user's gender: man, woman, non-binary
     @AppStorage("genderEmoji") var genderEmoji = "" ///user's gender: man, woman, non-binary
 
+    //stored variable that tells app whether user is logged in
+    @AppStorage("status") var status = false
+    
+    //MARK: stored variable that tells app to go to welcome back view if user attempts to sign
+    //in and already has an account
+    @AppStorage("hasAccount") var hasAccount = false
+
     // MARK: indicates whether phone verification code has been sent
     @AppStorage("sentPhoneCode") var sentPhoneCode = false ///6 digit phone code
     
@@ -37,7 +44,7 @@ class RegisterViewModel : ObservableObject {
     @Published var phoneCodeVerifyLoadingIndicator = false
     
     // MARK: temp phone numbers and codes that will work
-    @State var validPhoneNumbersAndCodes: [String:String] = ["+16505551234": "123456"]
+    @State var validPhoneNumbersAndCodes: [String:String] = ["+16505551234": "123456", "+16505551111": "123456"]
     
     // MARK: indicates whether phone verification code has been sent
     @AppStorage("sentEmailCode") var sentEmailCode = false ///6 digit phone code
@@ -81,12 +88,17 @@ class RegisterViewModel : ObservableObject {
             self.phoneCodeVerifyLoadingIndicator = true
             validateCode("1", phoneNumber, phoneCode)
         } else {
-            for (tempPhoneNumber, tempPhoneCode) in validPhoneNumbersAndCodes {
-                if tempPhoneNumber == self.phoneNumber && tempPhoneCode == self.phoneCode {
-                    self.phoneAuthCode = 1
+            //temporarily log in the phone number +16505551111, otherwise go through sign up flow
+            if self.phoneCode == "123456" {
+                if self.phoneNumber == "+16505551111" {
+                    withAnimation {
+                        self.hasAccount = true
+                    }
                 } else {
-                    self.phoneAuthCode = 2
+                    self.phoneAuthCode = 1
                 }
+            } else {
+                self.phoneAuthCode = 2
             }
         }
     }
@@ -196,6 +208,21 @@ class RegisterViewModel : ObservableObject {
             self.gender = "non-binary"
         }
     }
+    
+    // MARK: login user
+    func loginUser() {
+        withAnimation {
+            self.status = true
+        }
+    }
+    
+    // MARK: logout user
+    func logoutUser() {
+        withAnimation {
+            self.status = false
+            self.hasAccount = false
+        }
+    }
     /// TWILIO API CALLS BELOW
     
     // MARK: sends 6 digit code by calling twilio's verify api
@@ -275,5 +302,6 @@ class RegisterViewModel : ObservableObject {
             }
         }
     }
+    
     
 }
