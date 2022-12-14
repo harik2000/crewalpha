@@ -108,7 +108,7 @@ struct skipContactButton: View {
             
             Spacer()
             
-            NavigationLink(destination: TempUserView(), isActive: $showHome) {
+            NavigationLink(destination: HomeView(), isActive: $showHome) {
                 
                 Text("later")
                     .font(.custom("ABCSocial-Bold-Trial", size: 18))
@@ -172,7 +172,7 @@ struct contactButton: View {
     var body: some View {
         
         VStack {
-            NavigationLink(destination: TempUserView(), isActive: $showHome) {
+            NavigationLink(destination: HomeView(), isActive: $showHome) {
                 EmptyView()
             }
             

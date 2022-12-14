@@ -26,6 +26,13 @@
 		4739A3DA2942964100284A7A /* NotificationPermissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4739A3D92942964100284A7A /* NotificationPermissionView.swift */; };
 		4739A3DC2943DB2F00284A7A /* StatusBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4739A3DB2943DB2F00284A7A /* StatusBarController.swift */; };
 		4739A3DE294433C700284A7A /* WelcomeBackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4739A3DD294433C700284A7A /* WelcomeBackView.swift */; };
+		4740A15F2949AA11000CFD10 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4740A15E2949AA11000CFD10 /* HomeView.swift */; };
+		4740A1612949AB3D000CFD10 /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4740A1602949AB3C000CFD10 /* SideMenuView.swift */; };
+		4740A1632949ABA8000CFD10 /* SelectedCrewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4740A1622949ABA8000CFD10 /* SelectedCrewView.swift */; };
+		4740A1652949ACA8000CFD10 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4740A1642949ACA8000CFD10 /* CameraView.swift */; };
+		4740A1672949ADB6000CFD10 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4740A1662949ADB6000CFD10 /* UserProfileView.swift */; };
+		4740A16A2949B220000CFD10 /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4740A1692949B220000CFD10 /* CameraViewModel.swift */; };
+		4740A16C2949B420000CFD10 /* MainCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4740A16B2949B420000CFD10 /* MainCameraView.swift */; };
 		4749E859293DAAE100252E0A /* NameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4749E858293DAAE100252E0A /* NameView.swift */; };
 		47B0D2132936B31400FB6792 /* crewApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B0D2122936B31400FB6792 /* crewApp.swift */; };
 		47B0D2172936B31500FB6792 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47B0D2162936B31500FB6792 /* Assets.xcassets */; };
@@ -82,6 +89,13 @@
 		4739A3D92942964100284A7A /* NotificationPermissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPermissionView.swift; sourceTree = "<group>"; };
 		4739A3DB2943DB2F00284A7A /* StatusBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarController.swift; sourceTree = "<group>"; };
 		4739A3DD294433C700284A7A /* WelcomeBackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeBackView.swift; sourceTree = "<group>"; };
+		4740A15E2949AA11000CFD10 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		4740A1602949AB3C000CFD10 /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
+		4740A1622949ABA8000CFD10 /* SelectedCrewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedCrewView.swift; sourceTree = "<group>"; };
+		4740A1642949ACA8000CFD10 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		4740A1662949ADB6000CFD10 /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
+		4740A1692949B220000CFD10 /* CameraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewModel.swift; sourceTree = "<group>"; };
+		4740A16B2949B420000CFD10 /* MainCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCameraView.swift; sourceTree = "<group>"; };
 		4749E858293DAAE100252E0A /* NameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameView.swift; sourceTree = "<group>"; };
 		47B0D20F2936B31400FB6792 /* crew.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = crew.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47B0D2122936B31400FB6792 /* crewApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = crewApp.swift; sourceTree = "<group>"; };
@@ -142,6 +156,42 @@
 				4739A3C6293F063500284A7A /* ImageCropView.swift */,
 			);
 			path = ImageCropService;
+			sourceTree = "<group>";
+		};
+		4740A15C2949A866000CFD10 /* SignupFlowViews */ = {
+			isa = PBXGroup;
+			children = (
+				47B0D23D29370F4600FB6792 /* WelcomeView.swift */,
+				47C8AFBC2938745000A00A63 /* PhoneNumberView.swift */,
+				47C8AFC629393B7200A00A63 /* PhoneVerificationView.swift */,
+				4739A3DD294433C700284A7A /* WelcomeBackView.swift */,
+				4749E858293DAAE100252E0A /* NameView.swift */,
+				470CFA94293E91A900B2E388 /* AgeView.swift */,
+				470CFA96293EB29F00B2E388 /* UsernameView.swift */,
+				4739A3BD293F02FC00284A7A /* ChooseProfileView.swift */,
+				4739A3CD293F06A500284A7A /* EmailView.swift */,
+				4739A3D1293FD65700284A7A /* EmailVerificationView.swift */,
+				4739A3D32940318A00284A7A /* SchoolYearView.swift */,
+				4739A3D52940319700284A7A /* ChooseGenderView.swift */,
+				4739A3D92942964100284A7A /* NotificationPermissionView.swift */,
+				4739A3D729426E9700284A7A /* ContactsPermissionView.swift */,
+				4739A3CF293FC20900284A7A /* ChooseUniversityView.swift */,
+			);
+			path = SignupFlowViews;
+			sourceTree = "<group>";
+		};
+		4740A15D2949A87F000CFD10 /* AuthenticatedViews */ = {
+			isa = PBXGroup;
+			children = (
+				47C8AFCB293B157E00A00A63 /* TempUserView.swift */,
+				4740A15E2949AA11000CFD10 /* HomeView.swift */,
+				4740A1602949AB3C000CFD10 /* SideMenuView.swift */,
+				4740A1622949ABA8000CFD10 /* SelectedCrewView.swift */,
+				4740A1642949ACA8000CFD10 /* CameraView.swift */,
+				4740A16B2949B420000CFD10 /* MainCameraView.swift */,
+				4740A1662949ADB6000CFD10 /* UserProfileView.swift */,
+			);
+			path = AuthenticatedViews;
 			sourceTree = "<group>";
 		};
 		47B0D2062936B31400FB6792 = {
@@ -208,22 +258,8 @@
 			isa = PBXGroup;
 			children = (
 				470CFA92293E8BE500B2E388 /* ContentView.swift */,
-				47B0D23D29370F4600FB6792 /* WelcomeView.swift */,
-				47C8AFBC2938745000A00A63 /* PhoneNumberView.swift */,
-				47C8AFC629393B7200A00A63 /* PhoneVerificationView.swift */,
-				4739A3DD294433C700284A7A /* WelcomeBackView.swift */,
-				4749E858293DAAE100252E0A /* NameView.swift */,
-				470CFA94293E91A900B2E388 /* AgeView.swift */,
-				470CFA96293EB29F00B2E388 /* UsernameView.swift */,
-				4739A3BD293F02FC00284A7A /* ChooseProfileView.swift */,
-				4739A3CD293F06A500284A7A /* EmailView.swift */,
-				4739A3D1293FD65700284A7A /* EmailVerificationView.swift */,
-				4739A3D32940318A00284A7A /* SchoolYearView.swift */,
-				4739A3D52940319700284A7A /* ChooseGenderView.swift */,
-				4739A3D92942964100284A7A /* NotificationPermissionView.swift */,
-				4739A3D729426E9700284A7A /* ContactsPermissionView.swift */,
-				4739A3CF293FC20900284A7A /* ChooseUniversityView.swift */,
-				47C8AFCB293B157E00A00A63 /* TempUserView.swift */,
+				4740A15C2949A866000CFD10 /* SignupFlowViews */,
+				4740A15D2949A87F000CFD10 /* AuthenticatedViews */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -254,6 +290,7 @@
 			isa = PBXGroup;
 			children = (
 				47C8AFC929393FC700A00A63 /* RegisterViewModel.swift */,
+				4740A1692949B220000CFD10 /* CameraViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -396,15 +433,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4740A1672949ADB6000CFD10 /* UserProfileView.swift in Sources */,
 				4739A3BE293F02FC00284A7A /* ChooseProfileView.swift in Sources */,
 				47C8AFC529389ADE00A00A63 /* Styles.swift in Sources */,
 				47C8AFBD2938745000A00A63 /* PhoneNumberView.swift in Sources */,
 				4739A3DC2943DB2F00284A7A /* StatusBarController.swift in Sources */,
+				4740A16A2949B220000CFD10 /* CameraViewModel.swift in Sources */,
 				4739A3D0293FC20900284A7A /* ChooseUniversityView.swift in Sources */,
 				4739A3CE293F06A500284A7A /* EmailView.swift in Sources */,
 				470CFA93293E8BE500B2E388 /* ContentView.swift in Sources */,
 				4739A3C5293F060500284A7A /* ImagePickerView.swift in Sources */,
 				4739A3C7293F063500284A7A /* ImageCropView.swift in Sources */,
+				4740A1632949ABA8000CFD10 /* SelectedCrewView.swift in Sources */,
 				47C8AFC329388E1600A00A63 /* Constants.swift in Sources */,
 				47B0D24129371D7800FB6792 /* NorthernLights.swift in Sources */,
 				47C8AFCA29393FC700A00A63 /* RegisterViewModel.swift in Sources */,
@@ -412,16 +452,20 @@
 				4739A3D42940318A00284A7A /* SchoolYearView.swift in Sources */,
 				47B0D23E29370F4600FB6792 /* WelcomeView.swift in Sources */,
 				470CFA97293EB29F00B2E388 /* UsernameView.swift in Sources */,
+				4740A15F2949AA11000CFD10 /* HomeView.swift in Sources */,
 				47B0D2132936B31400FB6792 /* crewApp.swift in Sources */,
 				4739A3C3293F05E800284A7A /* ShareActivityView.swift in Sources */,
 				4739A3C1293F05C300284A7A /* SceneDelegate.swift in Sources */,
 				4749E859293DAAE100252E0A /* NameView.swift in Sources */,
 				47C8AFD0293C422B00A00A63 /* VerifyAPI.swift in Sources */,
 				470CFA95293E91A900B2E388 /* AgeView.swift in Sources */,
+				4740A1612949AB3D000CFD10 /* SideMenuView.swift in Sources */,
 				4739A3D2293FD65700284A7A /* EmailVerificationView.swift in Sources */,
 				47C8AFCC293B157E00A00A63 /* TempUserView.swift in Sources */,
 				4739A3DE294433C700284A7A /* WelcomeBackView.swift in Sources */,
 				47B0D2432937259C00FB6792 /* CrewLogo.swift in Sources */,
+				4740A1652949ACA8000CFD10 /* CameraView.swift in Sources */,
+				4740A16C2949B420000CFD10 /* MainCameraView.swift in Sources */,
 				4739A3DA2942964100284A7A /* NotificationPermissionView.swift in Sources */,
 				4739A3D62940319700284A7A /* ChooseGenderView.swift in Sources */,
 				4739A3D829426E9700284A7A /* ContactsPermissionView.swift in Sources */,
@@ -587,7 +631,9 @@
 				DEVELOPMENT_TEAM = F5RPA3RS45;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Use your camera to send photos, videos, and react with waves to your friends' posts";
 				INFOPLIST_KEY_NSContactsUsageDescription = "Your contacts are used to find friends and uploaded to a server.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Use your microphone to record audio for videos and waves";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -621,7 +667,9 @@
 				DEVELOPMENT_TEAM = F5RPA3RS45;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Use your camera to send photos, videos, and react with waves to your friends' posts";
 				INFOPLIST_KEY_NSContactsUsageDescription = "Your contacts are used to find friends and uploaded to a server.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Use your microphone to record audio for videos and waves";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

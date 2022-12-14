@@ -21,7 +21,7 @@ struct ContentView: View {
     var body: some View {
         
         if status {
-            TempUserView()
+            HomeView()
         } else if hasAccount {
             WelcomeBackView()
         } else {
@@ -38,3 +38,6 @@ struct ContentView: View {
 
     }
 }
+
+
+
