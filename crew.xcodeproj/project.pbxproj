@@ -29,10 +29,11 @@
 		4740A15F2949AA11000CFD10 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4740A15E2949AA11000CFD10 /* HomeView.swift */; };
 		4740A1612949AB3D000CFD10 /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4740A1602949AB3C000CFD10 /* SideMenuView.swift */; };
 		4740A1632949ABA8000CFD10 /* SelectedCrewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4740A1622949ABA8000CFD10 /* SelectedCrewView.swift */; };
-		4740A1652949ACA8000CFD10 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4740A1642949ACA8000CFD10 /* CameraView.swift */; };
+		4740A1652949ACA8000CFD10 /* CameraHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4740A1642949ACA8000CFD10 /* CameraHelper.swift */; };
 		4740A1672949ADB6000CFD10 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4740A1662949ADB6000CFD10 /* UserProfileView.swift */; };
 		4740A16A2949B220000CFD10 /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4740A1692949B220000CFD10 /* CameraViewModel.swift */; };
-		4740A16C2949B420000CFD10 /* MainCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4740A16B2949B420000CFD10 /* MainCameraView.swift */; };
+		4740A16C2949B420000CFD10 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4740A16B2949B420000CFD10 /* CameraView.swift */; };
+		4740A16E294A70F3000CFD10 /* NewPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4740A16D294A70F3000CFD10 /* NewPostView.swift */; };
 		4749E859293DAAE100252E0A /* NameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4749E858293DAAE100252E0A /* NameView.swift */; };
 		47B0D2132936B31400FB6792 /* crewApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B0D2122936B31400FB6792 /* crewApp.swift */; };
 		47B0D2172936B31500FB6792 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47B0D2162936B31500FB6792 /* Assets.xcassets */; };
@@ -92,10 +93,11 @@
 		4740A15E2949AA11000CFD10 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		4740A1602949AB3C000CFD10 /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
 		4740A1622949ABA8000CFD10 /* SelectedCrewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedCrewView.swift; sourceTree = "<group>"; };
-		4740A1642949ACA8000CFD10 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		4740A1642949ACA8000CFD10 /* CameraHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraHelper.swift; sourceTree = "<group>"; };
 		4740A1662949ADB6000CFD10 /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		4740A1692949B220000CFD10 /* CameraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewModel.swift; sourceTree = "<group>"; };
-		4740A16B2949B420000CFD10 /* MainCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCameraView.swift; sourceTree = "<group>"; };
+		4740A16B2949B420000CFD10 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		4740A16D294A70F3000CFD10 /* NewPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostView.swift; sourceTree = "<group>"; };
 		4749E858293DAAE100252E0A /* NameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameView.swift; sourceTree = "<group>"; };
 		47B0D20F2936B31400FB6792 /* crew.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = crew.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47B0D2122936B31400FB6792 /* crewApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = crewApp.swift; sourceTree = "<group>"; };
@@ -187,8 +189,9 @@
 				4740A15E2949AA11000CFD10 /* HomeView.swift */,
 				4740A1602949AB3C000CFD10 /* SideMenuView.swift */,
 				4740A1622949ABA8000CFD10 /* SelectedCrewView.swift */,
-				4740A1642949ACA8000CFD10 /* CameraView.swift */,
-				4740A16B2949B420000CFD10 /* MainCameraView.swift */,
+				4740A16B2949B420000CFD10 /* CameraView.swift */,
+				4740A1642949ACA8000CFD10 /* CameraHelper.swift */,
+				4740A16D294A70F3000CFD10 /* NewPostView.swift */,
 				4740A1662949ADB6000CFD10 /* UserProfileView.swift */,
 			);
 			path = AuthenticatedViews;
@@ -434,6 +437,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4740A1672949ADB6000CFD10 /* UserProfileView.swift in Sources */,
+				4740A16E294A70F3000CFD10 /* NewPostView.swift in Sources */,
 				4739A3BE293F02FC00284A7A /* ChooseProfileView.swift in Sources */,
 				47C8AFC529389ADE00A00A63 /* Styles.swift in Sources */,
 				47C8AFBD2938745000A00A63 /* PhoneNumberView.swift in Sources */,
@@ -464,8 +468,8 @@
 				47C8AFCC293B157E00A00A63 /* TempUserView.swift in Sources */,
 				4739A3DE294433C700284A7A /* WelcomeBackView.swift in Sources */,
 				47B0D2432937259C00FB6792 /* CrewLogo.swift in Sources */,
-				4740A1652949ACA8000CFD10 /* CameraView.swift in Sources */,
-				4740A16C2949B420000CFD10 /* MainCameraView.swift in Sources */,
+				4740A1652949ACA8000CFD10 /* CameraHelper.swift in Sources */,
+				4740A16C2949B420000CFD10 /* CameraView.swift in Sources */,
 				4739A3DA2942964100284A7A /* NotificationPermissionView.swift in Sources */,
 				4739A3D62940319700284A7A /* ChooseGenderView.swift in Sources */,
 				4739A3D829426E9700284A7A /* ContactsPermissionView.swift in Sources */,

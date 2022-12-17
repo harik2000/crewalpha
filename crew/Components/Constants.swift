@@ -50,4 +50,7 @@ struct Constants{
     
     static let emailCodeErrorHeaderText = "☄️ houston, we have a problem"
     static let emailCodeErrorSubHeaderText = "check your email for a 6 digit code"
+    
+    static let cameraErrorHeaderText = "crew is a video & audio app 🤪"
+    static let cameraErrorSubHeaderText = "please allow camera / microphone access"
 }

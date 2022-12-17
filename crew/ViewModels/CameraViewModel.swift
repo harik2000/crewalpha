@@ -10,6 +10,7 @@ import AVFoundation
 
 // MARK: Camera View Model
 class CameraViewModel: NSObject,ObservableObject,AVCaptureFileOutputRecordingDelegate, AVCapturePhotoCaptureDelegate{
+    
     @Published var session = AVCaptureSession()
     @Published var alert = false
     @Published var output = AVCaptureMovieFileOutput()
@@ -27,17 +28,17 @@ class CameraViewModel: NSObject,ObservableObject,AVCaptureFileOutputRecordingDel
     @Published var maxDuration: CGFloat = 15
     
     //for photo
-  // since were going to read pic data....
+    // since were going to read pic data....
     @Published var photoOutput = AVCapturePhotoOutput()
     @Published var isTaken = false
     @Published var picData = Data(count: 0)
-  @Published var thumbnailData = Data(count: 0)
+    @Published var thumbnailData = Data(count: 0)
 
     @Published var flashOn = false
   
     @objc dynamic var videoDeviceInput: AVCaptureDeviceInput!
     private let sessionQueue = DispatchQueue(label: "session queue")
-  // MARK: Device Configuration Properties
+    // MARK: Device Configuration Properties
     private let videoDeviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera, .builtInDualCamera, .builtInTrueDepthCamera], mediaType: .video, position: .unspecified)
   
     @AppStorage("camerapermission") var camerapermission = 0
@@ -67,13 +68,13 @@ class CameraViewModel: NSObject,ObservableObject,AVCaptureFileOutputRecordingDel
     func checkAudioPermission() {
       switch AVAudioSession.sharedInstance().recordPermission {
         case .granted :
-          print("permission granted")
-          self.camerapermission = 1
-          setUp()
+            print("permission granted")
+            self.camerapermission = 1
+            setUp()
         case .denied:
             print("permission denied")
-          self.camerapermission = 2
-          self.alert.toggle()
+            self.camerapermission = 2
+            self.alert.toggle()
         case .undetermined:
             print("request permission here")
             AVAudioSession.sharedInstance().requestRecordPermission({ granted in
@@ -81,7 +82,6 @@ class CameraViewModel: NSObject,ObservableObject,AVCaptureFileOutputRecordingDel
                 print("permission granted here")
                // self.camerapermission = 1
                 self.setUp()
-
               }
             })
       default:
@@ -286,8 +286,10 @@ class CameraViewModel: NSObject,ObservableObject,AVCaptureFileOutputRecordingDel
         let tempURL = NSTemporaryDirectory() + "\(Date()).mov"
         //Need to correct image orientation before moving further
         if let videoOutputConnection = output.connection(with: .video) {
+
             //For frontCamera settings to capture mirror image
           if self.videoDeviceInput.device.position == .front {
+
               videoOutputConnection.automaticallyAdjustsVideoMirroring = false
               videoOutputConnection.isVideoMirrored = true
             } else {
@@ -313,6 +315,7 @@ class CameraViewModel: NSObject,ObservableObject,AVCaptureFileOutputRecordingDel
          self.thumbnailData = image?.pngData() ?? Data(count: 0)
        }
   }
+    
   func imageFromVideo(url: URL, at time: TimeInterval) -> UIImage? {
       let asset = AVURLAsset(url: url)
 

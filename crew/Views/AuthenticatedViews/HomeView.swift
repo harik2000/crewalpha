@@ -15,6 +15,9 @@ import SwiftUI
 
 struct HomeView: View {
     
+    // MARK: cameraModel makes use of the view model to handle the necessary camera permissions
+    @StateObject var cameraModel = CameraViewModel()
+    
     // MARK: variables used for swiping between tabs in the home page
     
     // MARK: width var determines width of ios device where each tab is offset its position * width of device
@@ -37,8 +40,9 @@ struct HomeView: View {
     @State var profileOffset : CGFloat = 0 //friends & classes menu initial offset
     @State var disableProfileAnimate : Bool = false //disable sliding animation for user profile when other tabs are selected
     
-    @State var lightStatusBar : Bool = true
-
+    // MARK: showProfileBanner creates the banner of 3 profile images for the user
+    @State var showProfileBanner = false
+   
     //Home View contains the 4 views (side menu, selected crew, camera, and user) along with a bottom tab
     var body: some View {
         VStack(spacing: 0) {
@@ -47,23 +51,23 @@ struct HomeView: View {
                     SideMenuView()
                         .frame(width: geometry.frame(in: .global).width)
                     
-                        
                     SelectedCrewView(currentFloatIndex: $currentFloatIndex)
-                       .frame(width: geometry.frame(in: .global).width)
-                       .offset(x: UIScreen.main.bounds.size.height < 800 && self.currentFloatIndex == 0 ? 12.5 : 0)
-                    
-                    MainCameraView()
                         .frame(width: geometry.frame(in: .global).width)
-
-                    UserProfileView(profileIndex: $profileIndex, profileOffset: $profileOffset, disableProfileAnimate: self.$disableProfileAnimate)
+                        .offset(x: UIScreen.main.bounds.size.height < 800 && self.currentFloatIndex == 0 ? 12.5 : 0)
+                    
+                    CameraView(currentFloatIndex: $currentFloatIndex)
                         .frame(width: geometry.frame(in: .global).width)
                     
+                    UserProfileView(profileIndex: $profileIndex, profileOffset: $profileOffset, disableProfileAnimate: self.$disableProfileAnimate, showProfileBanner: $showProfileBanner)
+                        .frame(width: geometry.frame(in: .global).width)
+                }
+                .onAppear {
                 }
                 .statusBarStyle(self.currentFloatIndex == 0 ? .darkContent : .lightContent)
                 .padding(.top, !UIDevice.current.hasNotch ? -20 : 0)
                 .offset(x: self.offsetX)
                 .offset(x: self.currentFloatIndex == 0 ? -60 : -CGFloat(self.currentFloatIndex) * geometry.size.width) //offset by 60 for side menu
-                .highPriorityGesture(
+                .gesture(
                     //updates drag gesture while in the process of being dragged and disables current drag state if switching between friends and classes menu in profile view
                     DragGesture().updating(self.$offsetX) { value, state, _ in
                         if currentFloatIndex == 1 {
@@ -72,7 +76,7 @@ struct HomeView: View {
                             }
                         } else if currentFloatIndex == 3 {
                             if self.profileIndex == 2 {
-                            } else if value.translation.width > 1 {
+                            } else if value.translation.width > 1 && !showProfileBanner { //don't allow swipe gesture when profile banner is showing
                                 state = value.translation.width
                             }
                         } else if currentFloatIndex != 0 {
@@ -81,49 +85,50 @@ struct HomeView: View {
                     }
                     .onEnded({ (value) in
                         
-                        let offset = value.translation.width / geometry.size.width
-                        let offsetPredicted = value.predictedEndTranslation.width / geometry.size.width
-                        let newIndex = CGFloat(self.currentFloatIndex) - offset
-                        self.currentFloatIndex = newIndex
-                        
-                        if(offsetPredicted < -0.2 && offset > -0.8) {
-                            //swiped left and animation has ended so move to the view on the right
-                            skipTab = false
-                            disableProfileAnimate = false
-                            let tempIndex = self.currentFloatIndex
-                            self.currentFloatIndex = CGFloat(min(max(Int(newIndex.rounded() + 1), 0), self.pageCount - 1))
-                            if tempIndex > 3 && self.currentFloatIndex == 3 { //to switch profile tab from friends to classes
-                                if self.profileIndex == 1 {
-                                    self.profileIndex = 2
-                                    self.profileOffset = -self.width
-                                    
-                                    //switchFriendsAndClasses(left: true)
+                        if cameraModel.camerapermission == 1 && !showProfileBanner { //make sure camera and mic permissions given as well as profile banner not showing
+                            let offset = value.translation.width / geometry.size.width
+                            let offsetPredicted = value.predictedEndTranslation.width / geometry.size.width
+                            let newIndex = CGFloat(self.currentFloatIndex) - offset
+                            self.currentFloatIndex = newIndex
+                            
+                            if(offsetPredicted < -0.2 && offset > -0.8) {
+                                //swiped left and animation has ended so move to the view on the right
+                                skipTab = false
+                                disableProfileAnimate = false
+                                let tempIndex = self.currentFloatIndex
+                                self.currentFloatIndex = CGFloat(min(max(Int(newIndex.rounded() + 1), 0), self.pageCount - 1))
+                                if tempIndex > 3 && self.currentFloatIndex == 3 { //to switch profile tab from friends to classes
+                                    if self.profileIndex == 1 {
+                                        self.profileIndex = 2
+                                        self.profileOffset = -self.width
+                                    }
                                 }
-                            }
-                        } else if (offsetPredicted > 0.2 && offset < 0.8) {
-                            //swiped right and animation has ended so move to the view on the left
-                            skipTab = false
-                            disableProfileAnimate = false
-                            let tempIndex = self.currentFloatIndex
-                            if tempIndex < 3 && tempIndex >= 2 { //to switch profile tab from friends to classes
-                                if self.profileIndex == 2 {
-                                    self.profileIndex = 1
-                                    self.profileOffset = 0
-                                    
-                                    self.currentFloatIndex = 3.0
+                            } else if (offsetPredicted > 0.2 && offset < 0.8) {
+                                //swiped right and animation has ended so move to the view on the left
+                                skipTab = false
+                                disableProfileAnimate = false
+                                let tempIndex = self.currentFloatIndex
+                                if tempIndex < 3 && tempIndex >= 2 { //to switch profile tab from friends to classes
+                                    if self.profileIndex == 2 {
+                                        self.profileIndex = 1
+                                        self.profileOffset = 0
+                                        
+                                        self.currentFloatIndex = 3.0
+                                    } else {
+                                        self.currentFloatIndex = CGFloat(min(max(Int(newIndex.rounded() - 1), 0), self.pageCount - 1))
+                                    }
                                 } else {
                                     self.currentFloatIndex = CGFloat(min(max(Int(newIndex.rounded() - 1), 0), self.pageCount - 1))
                                 }
-                            } else {
-                                self.currentFloatIndex = CGFloat(min(max(Int(newIndex.rounded() - 1), 0), self.pageCount - 1))
-                            }
 
-                        } else {
-                            //swiped to stay on current screen so don't change views
-                            skipTab = false
-                            disableProfileAnimate = false
-                            self.currentFloatIndex = CGFloat(min(max(Int(newIndex.rounded()), 0), self.pageCount - 1))
+                            } else {
+                                //swiped to stay on current screen so don't change views
+                                skipTab = false
+                                disableProfileAnimate = false
+                                self.currentFloatIndex = CGFloat(min(max(Int(newIndex.rounded()), 0), self.pageCount - 1))
+                            }
                         }
+                        
                     })
                 )
                 .onChange(of: self.currentFloatIndex) { newValue in
@@ -136,7 +141,7 @@ struct HomeView: View {
             }
             
             //Bottom tab bar that has selected crew, camera, and profile
-            BottomTab(skipTab: self.$skipTab, currentFloatIndex: self.$currentFloatIndex, profileIndex: self.$profileIndex, profileOffset: self.$profileOffset, disableProfileAnimate: self.$disableProfileAnimate)
+            BottomTab(skipTab: self.$skipTab, currentFloatIndex: self.$currentFloatIndex, profileIndex: self.$profileIndex, profileOffset: self.$profileOffset, disableProfileAnimate: self.$disableProfileAnimate, showProfileBanner: self.$showProfileBanner)
                 .offset(x: self.currentFloatIndex == 0 ? width - 60 : 0)
                 .animation(skipTab ? .none : .interactiveSpring (response: 0.3, dampingFraction: 0.95, blendDuration: 0.25), value: UUID())
 
@@ -145,7 +150,6 @@ struct HomeView: View {
         .navigationBarHidden(true)
         .edgesIgnoringSafeArea(.all)
         .background(Color.white)
-        
     }
 }
 
@@ -167,6 +171,12 @@ struct BottomTab: View {
     @Binding var profileOffset : CGFloat
     @Binding var disableProfileAnimate : Bool
     
+    // MARK: cameraModel makes use of the view model to handle the necessary camera permissions
+    @StateObject var cameraModel = CameraViewModel()
+    
+    // MARK: show profile banner shows the 3 photos of the user profile
+    @Binding var showProfileBanner: Bool
+
     var body: some View {
         
         ZStack {
@@ -181,6 +191,11 @@ struct BottomTab: View {
                         self.disableProfileAnimate = true
                         self.currentFloatIndex = 1
                         skipTab = true
+                        
+                        //if user attempts to switch tabs while having profile banner viewed, hide profile banner
+                        if showProfileBanner {
+                            showProfileBanner = false
+                        }
                     }) {
                         Image(self.currentFloatIndex == 1  ? "purplecircles" : "circles")
                           .resizable()
@@ -197,6 +212,11 @@ struct BottomTab: View {
                         self.disableProfileAnimate = true
                         self.currentFloatIndex = 2
                         skipTab = true
+                        
+                        //if user attempts to switch tabs while having profile banner viewed, hide profile banner
+                        if showProfileBanner {
+                            showProfileBanner = false
+                        }
                     }) {
                         Image(systemName: "camera")
                           .resizable()
@@ -228,7 +248,7 @@ struct BottomTab: View {
                 }
                 .padding(.bottom, UIScreen.main.bounds.size.height < 800 ? 15 : 25) //small screen needs to be 30 <800
         }
-        
+        .disabled(cameraModel.camerapermission != 1)
         .frame(width: 30 + width, height: 80) //add 20 to bottom tab bar for
     }
     
@@ -279,6 +299,7 @@ extension UIApplication {
     }
       // 2. Helper function to get the key window
     private class func getKeyWindow() -> UIWindow? {
-        return UIApplication.shared.windows.first{ $0.isKeyWindow }
+        let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+        return windowScene?.windows.first { $0.isKeyWindow }
     }
 }
