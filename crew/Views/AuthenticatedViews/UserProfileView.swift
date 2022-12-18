@@ -34,7 +34,7 @@ struct UserProfileView: View {
                 //user's name, fanmail button and settings button
                 UserProfileNameButtonHeader()
                 
-                HStack(alignment: .top, spacing: 0) {
+                HStack(alignment: .center, spacing: 0) {
                     
                     //contain's the user's year and major in university
                     UserYearMajor()
@@ -82,6 +82,15 @@ struct UserProfileView: View {
 
 struct UserProfileActionButtons: View {
     
+    // MARK: button variable to toggle between states of tapping the friends button
+    @State private var tappedFriendsButton = false
+    
+    // MARK: button variable to toggle between states of tapping the search button
+    @State private var tappedSearchButton = false
+    
+    // MARK: button variable to toggle between states of tapping the crew button
+    @State private var tappedCrewButton = false
+    
     var body: some View {
         
         HStack {
@@ -90,10 +99,12 @@ struct UserProfileActionButtons: View {
           
             RoundedRectangle(cornerRadius: 10, style: .continuous)
                 .frame(width: 52, height: 62)
-                //.foregroundColor(.black.opacity(0.88))
+                .foregroundColor(.black.opacity(0.9))
+                .scaleEffect(tappedFriendsButton ? 0.8 : 1)
+                .animation(.spring(response: 0.4, dampingFraction: 0.6), value: tappedFriendsButton)
                 .overlay(
                     LinearGradient(
-                        gradient: Gradient(colors: [Color(#colorLiteral(red: 0, green: 0.8145048022, blue: 0.8413854837, alpha: 0.8470588235)), Color(#colorLiteral(red: 0.3221585751, green: 0.3056567907, blue: 0.8743923306, alpha: 0.8470588235))]),
+                        gradient: Gradient(colors: [Color.purple, Color.blue, Color(#colorLiteral(red: 0, green: 0.8145048022, blue: 0.8413854837, alpha: 0.8470588235))]),
                         startPoint: .trailing,
                         endPoint: .leading
                     ).mask(
@@ -101,22 +112,30 @@ struct UserProfileActionButtons: View {
                         .resizable()
                         .scaledToFill()
                         .frame(width: 32, height: 22)
+                        .scaleEffect(tappedFriendsButton ? 0.8 : 1)
+                        .animation(.spring(response: 0.4, dampingFraction: 0.6), value: tappedFriendsButton)
                         .font(Font.title.weight(.regular))
                         .foregroundColor(.white)
                     ).onTapGesture {
                         let impactMed = UIImpactFeedbackGenerator(style: .soft)
                         impactMed.impactOccurred()
+                        tappedFriendsButton = true
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                            tappedFriendsButton = false
+                        }
                     }
                 )
 
             RoundedRectangle(cornerRadius: 10, style: .continuous)
                 .frame(width: 52, height: 62)
-                //.foregroundColor(.black.opacity(0.88))
+                .foregroundColor(.black.opacity(0.9))
                 .padding(.trailing, 30)
                 .padding(.leading, 30)
+                .scaleEffect(tappedSearchButton ? 0.8 : 1)
+                .animation(.spring(response: 0.4, dampingFraction: 0.6), value: tappedSearchButton)
                 .overlay(
                     LinearGradient(
-                        gradient: Gradient(colors: [Color(#colorLiteral(red: 0, green: 0.8145048022, blue: 0.8413854837, alpha: 0.8470588235)), Color(#colorLiteral(red: 0.3221585751, green: 0.3056567907, blue: 0.8743923306, alpha: 0.8470588235))]),
+                        gradient: Gradient(colors: [Color(#colorLiteral(red: 0, green: 0.8145048022, blue: 0.8413854837, alpha: 0.8470588235)), Color.blue, Color.purple]),
                         startPoint: .leading,
                         endPoint: .trailing
                     ).mask(
@@ -124,34 +143,48 @@ struct UserProfileActionButtons: View {
                         .resizable()
                         .scaledToFill()
                         .frame(width: 22, height: 22)
+                        .scaleEffect(tappedSearchButton ? 0.8 : 1)
+                        .animation(.spring(response: 0.4, dampingFraction: 0.6), value: tappedSearchButton)
                         .font(Font.title.weight(.regular))
                         .foregroundColor(.white)
                     )
                     .onTapGesture {
                         let impactMed = UIImpactFeedbackGenerator(style: .soft)
                         impactMed.impactOccurred()
+                        tappedSearchButton = true
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                            tappedSearchButton = false
+                        }
                     }
                 )
 
             RoundedRectangle(cornerRadius: 10, style: .continuous)
                 .frame(width: 52, height: 62)
-                //.foregroundColor(.black.opacity(0.88))
+                .foregroundColor(.black.opacity(0.9))
+                .scaleEffect(tappedCrewButton ? 0.8 : 1)
+                .animation(.spring(response: 0.4, dampingFraction: 0.6), value: tappedCrewButton)
                 .overlay(
-                LinearGradient(
-                    gradient: Gradient(colors: [Color(#colorLiteral(red: 0, green: 0.8145048022, blue: 0.8413854837, alpha: 0.8470588235)), Color(#colorLiteral(red: 0.3221585751, green: 0.3056567907, blue: 0.8743923306, alpha: 0.8470588235))]),
-                    startPoint: .trailing,
-                    endPoint: .leading
-                ).mask(
-                    Image(systemName: "square.and.pencil")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 24, height: 14)
-                    .font(Font.title.weight(.regular))
-                    .foregroundColor(.blue)
-                )
-                .onTapGesture {
-                    let impactMed = UIImpactFeedbackGenerator(style: .soft)
-                    impactMed.impactOccurred()
+                    LinearGradient(
+                        gradient: Gradient(colors: [Color.purple, Color.blue, Color(#colorLiteral(red: 0, green: 0.8145048022, blue: 0.8413854837, alpha: 0.8470588235))]),
+                        startPoint: .trailing,
+                        endPoint: .leading
+                    ).mask(
+                        Image(systemName: "square.and.pencil")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 24, height: 14)
+                        .scaleEffect(tappedCrewButton ? 0.8 : 1)
+                        .animation(.spring(response: 0.4, dampingFraction: 0.6), value: tappedCrewButton)
+                        .font(Font.title.weight(.regular))
+                        .foregroundColor(.blue)
+                    )
+                    .onTapGesture {
+                        let impactMed = UIImpactFeedbackGenerator(style: .soft)
+                        impactMed.impactOccurred()
+                        tappedCrewButton = true
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                            tappedCrewButton = false
+                        }
                     }
                 )
           
@@ -170,8 +203,8 @@ struct UserProfileNameButtonHeader: View {
     @State private var tappedSettingsButton = false
     
     var body: some View {
-        HStack {
-            Text("hari")
+        HStack(alignment: .top) {
+            Text("hari krishna")
                 .underline()
                 .font(.system(size: UIScreen.main.bounds.size.height > 800 ? 28 : 24))
                 .fontWeight(.medium)
@@ -199,7 +232,8 @@ struct UserProfileNameButtonHeader: View {
             .scaleEffect(tappedFanmailButton ? 0.8 : 1)
             .animation(.spring(response: 0.4, dampingFraction: 0.6), value: tappedFanmailButton)
             .buttonStyle(StaticButtonStyle())
-            
+            .padding(.top, 10)
+
             Button(action: {
                 let impactMed = UIImpactFeedbackGenerator(style: .soft)
                 impactMed.impactOccurred()
@@ -218,6 +252,8 @@ struct UserProfileNameButtonHeader: View {
             .scaleEffect(tappedSettingsButton ? 0.8 : 1)
             .animation(.spring(response: 0.4, dampingFraction: 0.6), value: tappedSettingsButton)
             .buttonStyle(StaticButtonStyle())
+            .padding(.top, 10)
+
         }
         .padding(.leading, 20)
         .padding(.trailing, 20)
@@ -230,15 +266,15 @@ struct UserYearMajor: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text("👨‍🎓 senior")
-                .font(.system(size: 16))
+                .font(.system(size: UIScreen.main.bounds.size.height > 800 ? 16 : 14))
                 .fontWeight(.regular)
-                .tracking(2)
+                .tracking(1.5)
                 .foregroundColor(.gray)
             
-            Text("📚 computer science")
-                .font(.system(size: 16))
+            Text("📚 central and east european languages and cultures")
+                .font(.system(size: UIScreen.main.bounds.size.height > 800 ? 16 : 14))
                 .fontWeight(.regular)
-                .tracking(2)
+                .tracking(1.5)
                 .foregroundColor(.gray)
                 .padding(.top, 1.5)
             
@@ -260,7 +296,7 @@ struct UserProfileBanner: View {
             Image("ucla")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
-                .frame(width: 90, height: 90)
+                .frame(width: UIScreen.main.bounds.size.height > 900 ? 90 : 80, height: UIScreen.main.bounds.size.height > 900 ? 90 : 80)
                 .cornerRadius(10)
                 .padding(.trailing, -30)
                 .overlay(
@@ -283,7 +319,7 @@ struct UserProfileBanner: View {
             Image("main")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
-                .frame(width: 110, height: 110)
+                .frame(width: UIScreen.main.bounds.size.height > 900 ? 110 : 100, height: UIScreen.main.bounds.size.height > 900 ? 110 : 100)
                 .cornerRadius(10)
                 .overlay(
                   RoundedRectangle(cornerRadius: 10)
@@ -305,7 +341,7 @@ struct UserProfileBanner: View {
             Image("right")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
-                .frame(width: 90, height: 90)
+                .frame(width: UIScreen.main.bounds.size.height > 900 ? 90 : 80, height: UIScreen.main.bounds.size.height > 900 ? 90 : 80)
                 .cornerRadius(10)
                 .padding(.leading, -30)
                 .overlay(
@@ -334,7 +370,7 @@ struct UserUsername: View {
             Spacer()
             
             Text(" @" + "harik2000")
-                .font(.system(size: UIScreen.main.bounds.size.height > 800 ? 16 : 10))
+                .font(.system(size: UIScreen.main.bounds.size.height > 800 ? 16 : 14))
                 .fontWeight(.medium)
                 .tracking(2)
                 .foregroundColor(.gray)
@@ -352,7 +388,6 @@ struct UserUsername: View {
 }
 
 struct ProfileBannerView: View {
-    var width = UIScreen.main.bounds.width
     // MARK: show profile banner shows the 3 photos of the user profile
     @Binding var showProfileBanner: Bool
 
@@ -360,7 +395,6 @@ struct ProfileBannerView: View {
     @Binding var selectedBannerPosition: String
     
     var body: some View {
-        let bannerWidth = 0.85 * width
         
         Rectangle()
             .foregroundColor(Color.black.opacity(0.9))

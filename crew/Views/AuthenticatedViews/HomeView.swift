@@ -177,6 +177,15 @@ struct BottomTab: View {
     // MARK: show profile banner shows the 3 photos of the user profile
     @Binding var showProfileBanner: Bool
 
+    // MARK: button variable to toggle between states of tapping the crew tab button
+    @State private var tappedCrewTabIcon = false
+    
+    // MARK: button variable to toggle between states of tapping the crew tab button
+    @State private var tappedCameraTabIcon = false
+    
+    // MARK: button variable to toggle between states of tapping the user tab button
+    @State private var tappedUserTabIcon = false
+   
     var body: some View {
         
         ZStack {
@@ -196,14 +205,21 @@ struct BottomTab: View {
                         if showProfileBanner {
                             showProfileBanner = false
                         }
+                        tappedCrewTabIcon = true
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                            tappedCrewTabIcon = false
+                        }
                     }) {
-                        Image(self.currentFloatIndex == 1  ? "purplecircles" : "circles")
+                        Image(self.currentFloatIndex == 1 || self.currentFloatIndex == 0  ? "purplecircles" : "circles")
                           .resizable()
                           .scaledToFill()
                           .frame(width: 28, height: 18)
                           .font(Font.title.weight(.regular))
                     }
-                    
+                    .scaleEffect(tappedCrewTabIcon ? 0.9 : 1)
+                    .animation(.spring(response: 0.4, dampingFraction: 0.6), value: tappedCrewTabIcon)
+                    .buttonStyle(StaticButtonStyle())
+
                     Spacer()
                     
                     //camera tab icon
@@ -217,6 +233,10 @@ struct BottomTab: View {
                         if showProfileBanner {
                             showProfileBanner = false
                         }
+                        tappedCameraTabIcon = true
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                            tappedCameraTabIcon = false
+                        }
                     }) {
                         Image(systemName: "camera")
                           .resizable()
@@ -227,7 +247,10 @@ struct BottomTab: View {
                           .padding(.trailing, 10)
                           .foregroundColor(self.currentFloatIndex == 2  ?  Color.blue : Color(#colorLiteral(red: 0.9083711505, green: 0.921818316, blue: 0.9405590296, alpha: 1)))
                     }
-                    
+                    .scaleEffect(tappedCameraTabIcon ? 0.9 : 1)
+                    .animation(.spring(response: 0.4, dampingFraction: 0.6), value: tappedCameraTabIcon)
+                    .buttonStyle(StaticButtonStyle())
+
                     Spacer()
                     
                     //user profile tab icon
@@ -235,6 +258,11 @@ struct BottomTab: View {
                         self.currentFloatIndex = 3
                         skipTab = true
                         disableProfileAnimate = true
+                        
+                        tappedUserTabIcon = true
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                            tappedUserTabIcon = false
+                        }
                     }) {
                         Image(systemName: "person.crop.circle")
                           .resizable()
@@ -243,12 +271,15 @@ struct BottomTab: View {
                           .font(Font.title.weight(.regular))
                           .foregroundColor(self.currentFloatIndex == 3  ? Color(#colorLiteral(red: 0, green: 0.8145048022, blue: 0.8413854837, alpha: 1)) : Color(#colorLiteral(red: 0.9083711505, green: 0.921818316, blue: 0.9405590296, alpha: 1)))
                     }
+                    .scaleEffect(tappedUserTabIcon ? 0.9 : 1)
+                    .animation(.spring(response: 0.4, dampingFraction: 0.6), value: tappedUserTabIcon)
+                    .buttonStyle(StaticButtonStyle())
                     
                     Spacer()
                 }
                 .padding(.bottom, UIScreen.main.bounds.size.height < 800 ? 15 : 25) //small screen needs to be 30 <800
         }
-        .disabled(cameraModel.camerapermission != 1)
+        .disabled(cameraModel.camerapermission != 1) //DISABLE THIS FOR SIMULATOR
         .frame(width: 30 + width, height: 80) //add 20 to bottom tab bar for
     }
     
