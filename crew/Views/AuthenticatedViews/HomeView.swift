@@ -12,6 +12,7 @@ import SwiftUI
 // when the user opens the app when they're logged in, each view is offset exactly its position * device width away
 // and the user can go back and forth along with swipe gestures or the bottom tab bar. Swipe gesture for the class
 // and friend menu is also handled within the HomeView
+//GITHUB
 
 struct HomeView: View {
     
